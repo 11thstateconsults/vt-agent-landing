@@ -167,14 +167,23 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .video-info p{font-size:.85rem;color:rgba(241,245,249,.5);line-height:1.5}
 
 /* WHAT YOU GET */
-.value-section{padding:100px 0;background:var(--bg-section-alt);text-align:center}
-.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.value-card{background:var(--bg-card);border-radius:20px;padding:32px 24px;text-align:left;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
-.value-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-.value-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.value-icon svg{width:26px;height:26px}
-.value-card h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
-.value-card p{font-size:.9rem;color:var(--text-body);line-height:1.6}
+.value-section{padding:100px 0;background:linear-gradient(180deg,#0f172a 0%,#1a1145 50%,#0f172a 100%);text-align:center;position:relative;overflow:hidden}
+.value-section .section-title,.value-section .section-label{color:#fff}
+.value-section .section-title .gradient-text{background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.value-section .section-desc{color:rgba(241,245,249,.5)}
+.value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:900px;margin:0 auto}
+.value-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px 32px;text-align:left;position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.value-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-gradient);opacity:0;transition:opacity .3s}
+.value-card:hover{transform:translateY(-6px);border-color:rgba(124,58,237,.35);box-shadow:0 20px 60px rgba(124,58,237,.15)}
+.value-card:hover::before{opacity:1}
+.value-card-header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.value-num{width:44px;height:44px;border-radius:12px;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#fff;flex-shrink:0}
+.value-card h3{font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:0}
+.value-card>p{font-size:.92rem;color:rgba(241,245,249,.55);line-height:1.7;margin-bottom:18px}
+.value-features{list-style:none;padding:0;margin:0}
+.value-features li{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:rgba(241,245,249,.7);line-height:1.6;padding:6px 0}
+.value-features li svg{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+@media(max-width:768px){.value-grid{grid-template-columns:1fr;max-width:500px}}
 
 /* SOCIAL PROOF */
 .proof-section{padding:100px 0;background:var(--bg-dark-section);text-align:center}
@@ -288,6 +297,7 @@ footer{background:#080c14;padding:40px 0;text-align:center}
           <div class="market-dots">
             <div class="market-dot"><span class="dot-indicator filling"></span> RI</div>
             <div class="market-dot"><span class="dot-indicator open"></span> MA</div>
+            <div class="market-dot"><span class="dot-indicator open"></span> CT</div>
             <div class="market-dot"><span class="dot-indicator open"></span> OH</div>
           </div>
         </div>
@@ -312,8 +322,8 @@ footer{background:#080c14;padding:40px 0;text-align:center}
           <span class="back-link" onclick="showStep(1)">&larr; Back</span>
           <h2>Your Market</h2>
           <p class="form-sub">Helps us match you with <strong>local content</strong></p>
-          <div class="field" id="field-state"><label for="fstate">State</label><select id="fstate"><option value="">Select your state...</option><option value="RI">Rhode Island</option><option value="MA">Massachusetts</option><option value="OH">Ohio</option><option value="Other">Other</option></select><div class="error-msg">Please select your state</div></div>
-          <div class="field" id="field-city"><label for="fcity">City / Market Area</label><input type="text" id="fcity" placeholder="e.g. Providence, Boston, Columbus"></div>
+          <div class="field" id="field-state"><label for="fstate">State</label><select id="fstate"><option value="">Select your state...</option><option value="RI">Rhode Island</option><option value="MA">Massachusetts</option><option value="CT">Connecticut</option><option value="OH">Ohio</option><option value="Other">Other</option></select><div class="error-msg">Please select your state</div></div>
+          <div class="field" id="field-city"><label for="fcity">City / Market Area</label><input type="text" id="fcity" placeholder="e.g. Providence, Boston, Hartford, Columbus"></div>
           <div class="field" id="field-brokerage"><label for="fbrokerage">Brokerage Name</label><input type="text" id="fbrokerage" placeholder="e.g. Keller Williams, RE/MAX"></div>
           <button class="btn-primary" id="btn-step2"><span class="btn-text">Almost There &mdash; Next Step &rarr;</span><div class="spinner"></div></button>
         </div>
@@ -389,14 +399,46 @@ footer{background:#080c14;padding:40px 0;text-align:center}
 <!-- WHAT YOU GET -->
 <section class="value-section">
   <div class="inner animate-in">
-    <div class="section-label">What You Get</div>
-    <h2 class="section-title">Everything included.<br><span class="gradient-text">Zero cost to you.</span></h2>
+    <div class="section-label" style="color:var(--accent-light)">What You Get</div>
+    <h2 class="section-title" style="color:#fff">Everything included.<br><span class="gradient-text">Zero cost to you.</span></h2>
     <p class="section-desc">We handle writing, production, editing, and delivery. You focus on what you do best &mdash; closing deals.</p>
     <div class="value-grid">
-      <div class="value-card"><div class="value-icon" style="background:rgba(124,58,237,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m8 21 4-4 4 4"/><path d="M12 17V11"/></svg></div><h3>Professional AI Video</h3><p>Monthly video content featuring your digital twin &mdash; market updates, tips, neighborhood spotlights, and more. Studio quality without the studio.</p></div>
-      <div class="value-card"><div class="value-icon" style="background:rgba(6,182,212,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg></div><h3>Custom Scripts &amp; Topics</h3><p>Our writers craft content for your specific market and brand. You approve everything before production. Your voice, your message.</p></div>
-      <div class="value-card"><div class="value-icon" style="background:rgba(245,158,11,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></div><h3>Stand Out Instantly</h3><p>While other agents post selfie videos, you show up with polished, professional content that commands attention and builds authority.</p></div>
-      <div class="value-card"><div class="value-icon" style="background:rgba(16,185,129,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></div><h3>Completely Free</h3><p>No subscription. No hidden fees. No catch. Professional content delivered monthly &mdash; we just need your permission and your photos.</p></div>
+      <div class="value-card">
+        <div class="value-card-header"><div class="value-num">1</div><h3>Professional AI Video</h3></div>
+        <p>Studio-quality video content featuring your digital twin &mdash; delivered monthly, ready to post.</p>
+        <ul class="value-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Market updates with local stats &amp; data</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Closing tips &amp; buyer/seller education</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Neighborhood spotlight reels</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <div class="value-card-header"><div class="value-num">2</div><h3>Custom Scripts &amp; Topics</h3></div>
+        <p>Our writers craft content for your specific market and brand. Nothing goes live without your approval.</p>
+        <ul class="value-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Tailored to your market area</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Your voice, your messaging style</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full approval before every production</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <div class="value-card-header"><div class="value-num">3</div><h3>Instant Authority</h3></div>
+        <p>While other agents post selfie videos, you show up with polished professional content that commands attention.</p>
+        <ul class="value-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Stand out in crowded feeds</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Build trust before the first call</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Position yourself as market expert</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <div class="value-card-header"><div class="value-num">$0</div><h3>Completely Free</h3></div>
+        <p>No subscription. No hidden fees. No catch. Professional content delivered monthly &mdash; just bring your photos.</p>
+        <ul class="value-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No credit card required &mdash; ever</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No contract or commitment</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Cancel with one email anytime</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -405,11 +447,11 @@ footer{background:#080c14;padding:40px 0;text-align:center}
 <section class="proof-section">
   <div class="inner animate-in">
     <div class="section-label" style="color:var(--accent-light)">Momentum</div>
-    <h2 class="section-title">Agents Across 3 Markets<br>Are Already Applying</h2>
+    <h2 class="section-title">Agents Across 4 Markets<br>Are Already Applying</h2>
     <p class="section-desc">We're building something new. Get in early.</p>
     <div class="metrics-row">
       <div class="metric"><div class="number">50+</div><div class="label">Agents in the Pipeline</div></div>
-      <div class="metric"><div class="number">3</div><div class="label">Markets Served</div></div>
+      <div class="metric"><div class="number">4</div><div class="label">Markets Served</div></div>
       <div class="metric"><div class="number">24hr</div><div class="label">Review Turnaround</div></div>
     </div>
     <div class="trust-badges">
@@ -434,7 +476,7 @@ footer{background:#080c14;padding:40px 0;text-align:center}
       <div class="faq-item"><button class="faq-q"><span>How long does it take to get my first video?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>After you submit your photos and we create your digital twin, your first video is typically delivered within 2&ndash;3 weeks. After that, new content arrives on a monthly basis.</p></div></div>
       <div class="faq-item"><button class="faq-q"><span>Can I control what my twin says?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Absolutely. Every script is sent for your review before production. You can request edits, suggest topics, or approve as-is. Nothing goes live without your sign-off.</p></div></div>
       <div class="faq-item"><button class="faq-q"><span>What if I don't like the content?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>You have full approval rights. If a video doesn't meet your standards, we revise it. And if you ever decide this isn't for you, there's no contract locking you in &mdash; you can walk away anytime.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>What markets are you in?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>We're currently onboarding agents in Rhode Island, Massachusetts, and Ohio &mdash; with more markets coming soon. Apply now to secure your spot.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>What markets are you in?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>We're currently onboarding agents in Rhode Island, Massachusetts, Connecticut, and Ohio &mdash; with more markets coming soon. Apply now to secure your spot.</p></div></div>
       <div class="faq-item"><button class="faq-q"><span>What happens to my photos and data?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Your data is protected. We use your photos solely to create your digital twin and produce your content. You can request deletion of your data at any time. Full details are provided before you move forward.</p></div></div>
     </div>
   </div>
@@ -467,8 +509,8 @@ footer{background:#080c14;padding:40px 0;text-align:center}
 
 <script>
 /* CONFIG */
-var SUPABASE_URL='https://YOUR_PROJECT.supabase.co';
-var SUPABASE_ANON_KEY='YOUR_ANON_KEY';
+var SUPABASE_URL='https://lesmihjdpquymwwilsuv.supabase.co';
+var SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxlc21paGpkcHF1eW13d2lsc3V2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMDQzOTQsImV4cCI6MjA4ODY4MDM5NH0.Vdrrj57gpNzGYHUI8FXs6Zg7azR76bpP5s5CBNCZ-zU';
 
 /* SUPABASE INIT */
 var sb=null;
