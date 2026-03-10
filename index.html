@@ -3,782 +3,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Virtual Twins AI â Your Digital Twin Is Waiting</title>
+<title>Virtual Twins AI — Your Digital Twin Is Waiting</title>
 <meta name="description" content="Get free professional AI-powered video content featuring your digital twin. No filming, no cost, no commitment. Apply in 10 seconds.">
-<meta property="og:title" content="Virtual Twins AI â Your Digital Twin Is Waiting">
+<meta property="og:title" content="Virtual Twins AI — Your Digital Twin Is Waiting">
 <meta property="og:description" content="Free professional video content for real estate agents. AI-powered. Zero filming required.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%238b5cf6'/><text x='50%25' y='50%25' text-anchor='middle' dy='.35em' font-size='18' fill='white' font-family='sans-serif' font-weight='bold'>VT</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- ═══ META PIXEL (replace YOUR_PIXEL_ID) ═══ -->
+<!--
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+-->
+
+<!-- ═══ GA4 (replace G-XXXXXXXXXX) ═══ -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-:root {
-  --primary: #7c3aed;
-  --primary-dark: #5b21b6;
-  --primary-light: #a78bfa;
-  --accent: #06b6d4;
-  --accent-light: #67e8f9;
-  --success: #10b981;
-  --warm: #f59e0b;
-  --accent-gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
-  --hero-gradient: linear-gradient(135deg, #0f0a1e 0%, #1a1145 40%, #0c1929 100%);
-  --bg-page: #f8fafc;
-  --bg-section-alt: #f1f5f9;
-  --bg-dark-section: #0f172a;
-  --bg-card: #ffffff;
-  --text-dark: #0f172a;
-  --text-body: #475569;
-  --text-light: #94a3b8;
-  --text-on-dark: #f1f5f9;
-  --border: #e2e8f0;
-  --border-dark: rgba(139, 92, 246, 0.25);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
-  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
-  --shadow-card: 0 4px 24px rgba(0,0,0,0.06);
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg-page); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+:root{--primary:#7c3aed;--primary-dark:#5b21b6;--primary-light:#a78bfa;--accent:#06b6d4;--accent-light:#67e8f9;--success:#10b981;--warm:#f59e0b;--accent-gradient:linear-gradient(135deg,#7c3aed,#06b6d4);--hero-gradient:linear-gradient(135deg,#0f0a1e 0%,#1a1145 40%,#0c1929 100%);--bg-page:#f8fafc;--bg-section-alt:#f1f5f9;--bg-dark-section:#0f172a;--bg-card:#fff;--text-dark:#0f172a;--text-body:#475569;--text-light:#94a3b8;--text-on-dark:#f1f5f9;--border:#e2e8f0;--shadow-sm:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 20px rgba(0,0,0,.08);--shadow-lg:0 10px 40px rgba(0,0,0,.12)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-page);color:var(--text-dark);overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+.skip-link{position:absolute;top:-100%;left:0;padding:12px 24px;background:var(--primary);color:#fff;z-index:9999}
+.skip-link:focus{top:0}
+.gradient-text{background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.inner{max-width:1200px;margin:0 auto;padding:0 24px}
 
-/* ââââââââââ NAV ââââââââââ */
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 16px 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.3s, box-shadow 0.3s;
-}
-.nav.scrolled {
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-}
-.nav-brand {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.nav-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: var(--accent-gradient);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 14px;
-  color: white;
-}
-.nav-links {
-  display: flex;
-  gap: 28px;
-  align-items: center;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: white; }
-.nav-cta {
-  background: var(--accent-gradient) !important;
-  color: white !important;
-  padding: 10px 22px;
-  border-radius: 10px;
-  font-weight: 600 !important;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(124,58,237,0.35); }
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.nav.scrolled{background:rgba(15,23,42,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 32px;box-shadow:0 4px 30px rgba(0,0,0,.2)}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:#fff}
+.nav-logo{width:36px;height:36px;border-radius:8px;background:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#fff}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-link-text{color:rgba(255,255,255,.7);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-link-text:hover{color:#fff}
+.nav-cta{padding:10px 24px;background:var(--accent-gradient);color:#fff;border-radius:10px;font-weight:600;font-size:.9rem;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(124,58,237,.4)}
+.nav-toggle{display:none;width:40px;height:40px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
 
-/* ââââââââââ HERO ââââââââââ */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 40px 80px;
-  background: var(--hero-gradient);
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,0.3), transparent),
-    radial-gradient(ellipse 50% 40% at 80% 60%, rgba(6,182,212,0.15), transparent),
-    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(124,58,237,0.1), transparent);
-  z-index: 0;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80') center/cover no-repeat;
-  opacity: 0.05;
-  z-index: 0;
-}
-.hero-split {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  max-width: 1200px;
-  width: 100%;
-}
+/* HERO */
+.hero{min-height:100vh;background:var(--hero-gradient);position:relative;display:flex;align-items:center;overflow:hidden;padding-top:80px}
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.particle{position:absolute;bottom:-10px;background:rgba(124,58,237,.3);border-radius:50%;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:.6}100%{transform:translateY(-100vh) scale(.3);opacity:0}}
+.hero-split{display:flex;align-items:center;gap:60px;max-width:1280px;margin:0 auto;padding:40px 32px;width:100%;position:relative;z-index:1}
+.hero-visual{flex:0 0 45%;position:relative}
+.hero-img{width:100%;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.4);aspect-ratio:3/4;object-fit:cover}
+.hero-img-glow{position:absolute;inset:-2px;border-radius:26px;background:var(--accent-gradient);opacity:.15;filter:blur(20px);z-index:-1}
+.hero-right{flex:1}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);border-radius:100px;font-size:.82rem;font-weight:600;color:var(--primary-light);margin-bottom:20px}
+.badge .dot{width:8px;height:8px;background:var(--success);border-radius:50%;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-right h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;letter-spacing:-.02em}
+.subtitle{font-size:1.1rem;color:rgba(241,245,249,.65);line-height:1.7;margin-bottom:24px;max-width:500px}
+.social-proof-strip{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px}
+.market-dots{display:flex;gap:12px}
+.market-dot{display:flex;align-items:center;gap:6px;font-size:.8rem;color:rgba(241,245,249,.7)}
+.dot-indicator{width:8px;height:8px;border-radius:50%}
+.dot-indicator.filling{background:var(--warm);animation:pulse 2s ease infinite}
+.dot-indicator.open{background:var(--success)}
+.social-proof-text{font-size:.85rem}
+.social-proof-text strong{color:#fff}
+.social-proof-text span{color:rgba(241,245,249,.5)}
 
-/* LEFT SIDE â TWIN VISUAL */
-.hero-visual { flex: 1; display: flex; flex-direction: column; align-items: center; }
-.twin-container {
-  position: relative;
-  width: 100%;
-  max-width: 460px;
-  aspect-ratio: 4/5;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-.twin-img-real {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  clip-path: polygon(0 0, 55% 0, 45% 100%, 0 100%);
-  z-index: 2;
-}
-.twin-img-digital {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  clip-path: polygon(55% 0, 100% 0, 100% 100%, 45% 100%);
-  z-index: 2;
-  filter: hue-rotate(15deg) saturate(1.2);
-}
-.twin-overlay-digital {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 55%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(6,182,212,0.15));
-  z-index: 3;
-  pointer-events: none;
-}
-.twin-divider {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, var(--accent), var(--primary-light), var(--accent), transparent);
-  z-index: 4;
-  transform: translateX(-50%);
-  box-shadow: 0 0 24px rgba(6,182,212,0.5), 0 0 48px rgba(124,58,237,0.2);
-}
-.twin-scan-line {
-  position: absolute;
-  left: 50%;
-  width: 55%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-light), transparent);
-  z-index: 5;
-  opacity: 0.6;
-  animation: scanline 3s ease-in-out infinite;
-}
-@keyframes scanline {
-  0% { top: 5%; opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { top: 95%; opacity: 0; }
-}
-.twin-label-real, .twin-label-digital {
-  position: absolute;
-  bottom: 20px;
-  z-index: 6;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 6px 14px;
-  border-radius: 6px;
-  backdrop-filter: blur(10px);
-  color: white;
-}
-.twin-label-real { left: 16px; background: rgba(0,0,0,0.5); }
-.twin-label-digital { right: 16px; background: rgba(6,182,212,0.4); border: 1px solid rgba(6,182,212,0.3); color: var(--accent-light); }
-.twin-glow {
-  position: absolute;
-  inset: -2px;
-  border-radius: 26px;
-  background: linear-gradient(135deg, transparent 40%, rgba(6,182,212,0.3) 50%, transparent 60%);
-  z-index: 1;
-  animation: glowPulse 4s ease-in-out infinite;
-}
-@keyframes glowPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+/* FORM CARD */
+.form-card{background:rgba(15,20,40,.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(139,92,246,.2);border-radius:20px;padding:32px;position:relative;overflow:hidden}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-gradient)}
+.progress-bar{height:4px;background:rgba(255,255,255,.08);border-radius:4px;margin-bottom:24px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent-gradient);border-radius:4px;transition:width .6s cubic-bezier(.22,1,.36,1);width:40%}
+.form-card h2{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:4px}
+.form-sub{color:rgba(241,245,249,.5);font-size:.88rem;margin-bottom:20px}
+.form-sub strong{color:var(--accent-light)}
+.form-step{transition:opacity .3s ease}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.82rem;font-weight:600;color:rgba(241,245,249,.8);margin-bottom:6px}
+.field input,.field select{width:100%;padding:13px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
+.field input::placeholder{color:rgba(255,255,255,.25)}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.field select option{background:#1e293b;color:#fff}
+.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(6,182,212,.15)}
+.field.has-error input,.field.has-error select{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.15)}
+.error-msg{display:none;font-size:.78rem;color:#ef4444;margin-top:4px}
+.field.has-error .error-msg{display:block}
+.btn-primary{width:100%;padding:15px 24px;background:var(--accent-gradient);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:6px;position:relative;overflow:hidden}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(124,58,237,.35)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary:disabled{opacity:.7;cursor:not-allowed;transform:none}
+.btn-primary .spinner{display:none;width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;margin:0 auto}
+.btn-primary.loading .btn-text{visibility:hidden}
+.btn-primary.loading .spinner{display:block;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.fine-print{text-align:center;font-size:.78rem;color:rgba(241,245,249,.35);margin-top:12px}
+.back-link{display:inline-flex;align-items:center;gap:4px;font-size:.82rem;color:rgba(241,245,249,.5);margin-bottom:16px;cursor:pointer;transition:color .2s}
+.back-link:hover{color:var(--accent-light)}
+.success-state{text-align:center;padding:20px 0}
+.success-check{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px;color:#fff;animation:scaleIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes scaleIn{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-state h3{font-size:1.3rem;color:#fff;margin-bottom:8px}
+.success-state p{color:rgba(241,245,249,.6);font-size:.92rem}
+.referral-box{margin-top:24px;padding:18px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:14px}
+.referral-box h4{color:var(--accent-light);font-size:.88rem;font-weight:600;margin-bottom:6px}
+.referral-box p{color:rgba(241,245,249,.45);font-size:.82rem;margin-bottom:12px}
+.copy-btn{padding:10px 20px;background:rgba(6,182,212,.15);border:1px solid rgba(6,182,212,.3);color:var(--accent-light);border-radius:10px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
 
-/* RIGHT SIDE â TEXT + FORM */
-.hero-right { flex: 1; max-width: 500px; }
-.hero-content { margin-bottom: 32px; }
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(6,182,212,0.12);
-  border: 1px solid rgba(6,182,212,0.3);
-  border-radius: 999px;
-  padding: 6px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent-light);
-  margin-bottom: 24px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-.badge .dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-.hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em; color: white; }
-.gradient-text { background: linear-gradient(135deg, #a78bfa, #67e8f9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero .subtitle { font-size: clamp(0.95rem, 1.8vw, 1.15rem); color: rgba(241,245,249,0.7); max-width: 460px; }
+/* SECTIONS SHARED */
+.section-label{display:inline-block;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:16px;letter-spacing:-.02em}
+.section-desc{font-size:1.05rem;color:var(--text-body);max-width:600px;margin:0 auto 48px}
+.animate-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.animate-in.visible{opacity:1;transform:translateY(0)}
 
-/* SOCIAL PROOF STRIP */
-.social-proof-strip {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 24px;
-  padding: 14px 0;
-}
-.agent-avatars {
-  display: flex;
-}
-.agent-avatars .av {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid rgba(15,23,42,0.8);
-  margin-left: -10px;
-  overflow: hidden;
-  object-fit: cover;
-}
-.agent-avatars .av:first-child { margin-left: 0; }
-.agent-avatars .av-more {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid rgba(15,23,42,0.8);
-  margin-left: -10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: white;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(4px);
-}
-.social-proof-text {
-  font-size: 0.85rem;
-  color: rgba(241,245,249,0.6);
-  line-height: 1.4;
-}
-.social-proof-text strong { color: var(--accent-light); }
+/* HOW IT WORKS */
+.how-section{padding:100px 0;background:var(--bg-page);text-align:center}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step-card{background:var(--bg-card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-md);transition:transform .3s,box-shadow .3s}
+.step-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.step-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden}
+.step-img-wrap img{width:100%;height:100%;object-fit:cover}
+.step-num{position:absolute;top:16px;left:16px;width:36px;height:36px;border-radius:50%;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.9rem;box-shadow:0 4px 12px rgba(124,58,237,.4)}
+.step-card .info{padding:24px;text-align:left}
+.step-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.step-card p{font-size:.9rem;color:var(--text-body);line-height:1.6}
 
-/* ââââââââââ FORM ââââââââââ */
-.form-card {
-  width: 100%;
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 0 60px rgba(124,58,237,0.08), 0 25px 50px rgba(0,0,0,0.3);
-}
-.form-card h2 { font-size: 1.3rem; font-weight: 700; text-align: center; margin-bottom: 4px; color: white; }
-.form-card .sub { text-align: center; color: rgba(241,245,249,0.6); font-size: 0.9rem; margin-bottom: 24px; }
-.form-card .sub strong { color: var(--success); font-weight: 600; }
-.field { margin-bottom: 14px; }
-.field label { display: block; font-size: 0.78rem; font-weight: 600; color: rgba(241,245,249,0.5); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
-.field input {
-  width: 100%;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  padding: 14px 16px;
-  color: white;
-  font-size: 1rem;
-  font-family: inherit;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(6,182,212,0.2); }
-.field input::placeholder { color: rgba(255,255,255,0.3); }
-.field .error-msg { display: none; font-size: 0.75rem; color: #f87171; margin-top: 4px; }
-.field.has-error input { border-color: #f87171; }
-.field.has-error .error-msg { display: block; }
-.btn-primary {
-  width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 12px;
-  background: var(--accent-gradient);
-  color: white;
-  font-size: 1.05rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  margin-top: 8px;
-  letter-spacing: 0.3px;
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.35); }
-.fine-print { text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 14px; }
+/* SAMPLE CONTENT */
+.video-section{padding:100px 0;background:var(--bg-dark-section);text-align:center}
+.video-section .section-title,.video-section .section-desc{color:var(--text-on-dark)}
+.video-section .section-desc{color:rgba(241,245,249,.5)}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.video-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s}
+.video-card:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.3)}
+.video-thumb{position:relative;aspect-ratio:16/9;overflow:hidden}
+.video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.video-card:hover .video-thumb img{transform:scale(1.05)}
+.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.play-btn svg{width:22px;height:22px;fill:#fff;margin-left:3px}
+.video-card:hover .play-btn{background:rgba(124,58,237,.6)}
+.video-tag{position:absolute;top:12px;left:12px;padding:5px 12px;border-radius:8px;font-size:.75rem;font-weight:700;color:#fff}
+.video-info{padding:20px;text-align:left}
+.video-info h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px}
+.video-info p{font-size:.85rem;color:rgba(241,245,249,.5);line-height:1.5}
 
-/* ââââââââââ LIGHT SECTIONS ââââââââââ */
-section { padding: 100px 20px; position: relative; }
-.inner { max-width: 1100px; margin: 0 auto; }
-.section-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--primary);
-  margin-bottom: 12px;
-  text-align: center;
-}
-.section-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--text-dark);
-}
-.section-desc {
-  text-align: center;
-  color: var(--text-body);
-  max-width: 620px;
-  margin: 0 auto 60px;
-  font-size: 1.05rem;
-}
+/* WHAT YOU GET */
+.value-section{padding:100px 0;background:var(--bg-section-alt);text-align:center}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.value-card{background:var(--bg-card);border-radius:20px;padding:32px 24px;text-align:left;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+.value-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.value-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.value-icon svg{width:26px;height:26px}
+.value-card h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.value-card p{font-size:.9rem;color:var(--text-body);line-height:1.6}
 
-/* ââââââââââ HOW IT WORKS ââââââââââ */
-.how-section { background: var(--bg-page); }
-.steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-.step-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: var(--shadow-sm);
-}
-.step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
-.step-card .step-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-.step-card .info { padding: 24px; }
-.step-num {
-  display: inline-flex;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--accent-gradient);
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 12px;
-}
-.step-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
-.step-card p { color: var(--text-body); font-size: 0.9rem; line-height: 1.55; }
+/* SOCIAL PROOF */
+.proof-section{padding:100px 0;background:var(--bg-dark-section);text-align:center}
+.proof-section .section-title{color:#fff}
+.proof-section .section-desc{color:rgba(241,245,249,.5)}
+.metrics-row{display:flex;justify-content:center;gap:60px;margin-bottom:48px}
+.metric{text-align:center}
+.metric .number{font-size:2.8rem;font-weight:900;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.metric .label{font-size:.85rem;color:rgba(241,245,249,.5);margin-top:6px;font-weight:500}
+.trust-badges{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.trust-badge{display:flex;align-items:center;gap:8px;padding:12px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+.trust-badge svg{width:18px;height:18px;stroke:var(--accent-light);fill:none;stroke-width:2}
+.trust-badge span{font-size:.85rem;color:rgba(241,245,249,.7);font-weight:500}
 
-/* ââââââââââ VIDEO SHOWCASE ââââââââââ */
-.video-section { background: var(--bg-section-alt); }
-.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
-.video-card {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: var(--shadow-sm);
-}
-.video-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.video-thumb { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
-.video-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-.video-card:hover .video-thumb img { transform: scale(1.03); }
-.play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--accent-gradient);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s;
-  box-shadow: 0 4px 20px rgba(124,58,237,0.4);
-}
-.play-btn:hover { transform: translate(-50%,-50%) scale(1.1); }
-.play-btn svg { width: 24px; height: 24px; fill: white; margin-left: 3px; }
-.video-tag {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: white;
-}
-.video-info { padding: 20px; }
-.video-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--text-dark); }
-.video-info p { color: var(--text-body); font-size: 0.85rem; }
+/* FAQ */
+.faq-section{padding:100px 0;background:var(--bg-page);text-align:center}
+.faq-list{max-width:720px;margin:0 auto;text-align:left}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:1rem;font-weight:600;color:var(--text-dark);cursor:pointer;text-align:left}
+.faq-q .arrow{font-size:.85rem;color:var(--text-light);transition:transform .3s}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+.faq-a p{font-size:.92rem;color:var(--text-body);line-height:1.7}
 
-/* ââââââââââ WHAT YOU GET â DARK BAND ââââââââââ */
-.value-section {
-  background: var(--bg-dark-section);
-  color: var(--text-on-dark);
-  position: relative;
-  overflow: hidden;
-}
-.value-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 30% 50%, rgba(124,58,237,0.1), transparent),
-    radial-gradient(ellipse 40% 40% at 70% 60%, rgba(6,182,212,0.08), transparent);
-}
-.value-section .section-label { color: var(--accent-light); }
-.value-section .section-title { color: white; }
-.value-section .section-desc { color: rgba(241,245,249,0.6); }
-.value-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  position: relative;
-  z-index: 1;
-}
-.value-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 32px;
-  transition: border-color 0.2s, transform 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-.value-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-.value-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 120px;
-  height: 120px;
-  border-radius: 0 16px 0 80px;
-  opacity: 0.06;
-  transition: opacity 0.3s;
-}
-.value-card:hover::after { opacity: 0.12; }
-.value-card:nth-child(1)::after { background: var(--primary); }
-.value-card:nth-child(2)::after { background: var(--accent); }
-.value-card:nth-child(3)::after { background: var(--warm); }
-.value-card:nth-child(4)::after { background: var(--success); }
-.value-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
-}
-.value-icon svg { width: 28px; height: 28px; }
-.value-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: white; }
-.value-card p { color: rgba(241,245,249,0.6); font-size: 0.92rem; line-height: 1.6; }
+/* FINAL CTA */
+.final-cta{padding:100px 0;background:var(--hero-gradient);text-align:center;position:relative;overflow:hidden}
+.final-cta h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:16px}
+.final-cta p{font-size:1.05rem;color:rgba(241,245,249,.55);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
+.btn-cta{display:inline-block;padding:16px 40px;background:var(--accent-gradient);color:#fff;border-radius:14px;font-size:1.05rem;font-weight:700;transition:transform .2s,box-shadow .2s}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(124,58,237,.4)}
+.final-trust{display:flex;justify-content:center;gap:32px;margin-top:40px}
+.final-trust-item{display:flex;align-items:center;gap:8px;color:rgba(241,245,249,.5);font-size:.85rem;font-weight:500}
+.final-trust-item svg{width:18px;height:18px;stroke:var(--accent-light);fill:none;stroke-width:2}
 
-/* ââââââââââ TESTIMONIALS ââââââââââ */
-.testimonial-section { background: var(--bg-section-alt); }
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-}
-.testimonial-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.2s, box-shadow 0.2s;
-  position: relative;
-}
-.testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.testimonial-card .quote-mark {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font-size: 3rem;
-  line-height: 1;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  opacity: 0.3;
-  font-family: Georgia, serif;
-}
-.testimonial-text {
-  font-size: 0.95rem;
-  color: var(--text-body);
-  line-height: 1.65;
-  margin-bottom: 20px;
-  font-style: italic;
-}
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.testimonial-author img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--border);
-}
-.testimonial-author-info h4 { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); }
-.testimonial-author-info span { font-size: 0.78rem; color: var(--text-light); }
-.testimonial-stars { color: #f59e0b; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 12px; }
+/* FOOTER */
+footer{background:#080c14;padding:40px 0;text-align:center}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-brand{font-size:1.1rem;font-weight:700;color:rgba(241,245,249,.6);margin-bottom:16px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px}
+.footer-links a{font-size:.85rem;color:rgba(241,245,249,.4);transition:color .2s}
+.footer-links a:hover{color:var(--accent-light)}
+.footer-copy{font-size:.78rem;color:rgba(241,245,249,.25)}
 
-/* ââââââââââ FAQ ââââââââââ */
-.faq-section { background: var(--bg-page); }
-.faq-list { max-width: 700px; margin: 0 auto; }
-.faq-item { border-bottom: 1px solid var(--border); }
-.faq-q {
-  width: 100%;
-  background: none;
-  border: none;
-  color: var(--text-dark);
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: left;
-  padding: 20px 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: inherit;
-}
-.faq-q .arrow { transition: transform 0.3s; font-size: 1.2rem; color: var(--text-light); }
-.faq-item.open .faq-q .arrow { transform: rotate(180deg); color: var(--primary); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s; color: var(--text-body); font-size: 0.92rem; line-height: 1.6; }
-.faq-item.open .faq-a { max-height: 300px; }
-.faq-a p { padding-bottom: 20px; }
+/* MOBILE CTA */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(15,23,42,.95);backdrop-filter:blur(20px);border-top:1px solid rgba(124,58,237,.2);z-index:900}
+.mobile-cta a{display:block;width:100%;padding:14px;background:var(--accent-gradient);color:#fff;text-align:center;border-radius:12px;font-weight:700;font-size:.95rem}
 
-/* ââââââââââ FINAL CTA ââââââââââ */
-.final-cta {
-  text-align: center;
-  padding: 100px 20px;
-  position: relative;
-  background: linear-gradient(135deg, #0f0a1e, #1a1145);
-  color: white;
-  overflow: hidden;
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .steps-grid{grid-template-columns:repeat(2,1fr)}
+  .value-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-split{gap:40px}
 }
-.final-cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(6,182,212,0.15), transparent);
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;right:0;width:280px;height:100vh;background:rgba(15,23,42,.98);backdrop-filter:blur(20px);flex-direction:column;padding:80px 32px 32px;gap:20px;transform:translateX(100%);transition:transform .3s ease;z-index:999}
+  .nav-links.open{display:flex;transform:translateX(0)}
+  .nav-toggle{display:flex;z-index:1001}
+  .hero-split{flex-direction:column;padding:20px 20px 60px;gap:30px}
+  .hero-visual{flex:none;width:100%;max-width:400px;margin:0 auto}
+  .hero-right h1{font-size:2rem}
+  .steps-grid,.video-grid,.value-grid{grid-template-columns:1fr;max-width:500px;margin:0 auto}
+  .metrics-row{flex-direction:column;gap:32px}
+  .trust-badges{flex-direction:column;align-items:center}
+  .final-trust{flex-direction:column;align-items:center;gap:12px}
+  .section-title{font-size:1.8rem}
+  .mobile-cta{display:block}
+  footer{padding-bottom:80px}
 }
-.final-cta .inner { position: relative; z-index: 1; }
-.final-cta h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 16px; }
-.final-cta p { color: rgba(241,245,249,0.65); font-size: 1.05rem; max-width: 500px; margin: 0 auto 32px; }
-.btn-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 18px 40px;
-  border: none;
-  border-radius: 14px;
-  background: var(--accent-gradient);
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  text-decoration: none;
+@media(max-width:480px){
+  .hero{padding-top:70px}
+  .hero-split{padding:10px 16px 50px}
+  .form-card{padding:24px 20px}
+  .social-proof-strip{flex-direction:column;align-items:flex-start;gap:10px}
 }
-.btn-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(124,58,237,0.35); }
-.final-trust { display: flex; justify-content: center; gap: 32px; margin-top: 40px; flex-wrap: wrap; }
-.final-trust-item { display: flex; align-items: center; gap: 8px; color: rgba(241,245,249,0.5); font-size: 0.85rem; }
-.final-trust-item svg { width: 20px; height: 20px; opacity: 0.6; }
-
-/* ââââââââââ FOOTER ââââââââââ */
-footer {
-  background: #0a0f1e;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 48px 20px 32px;
-  color: rgba(241,245,249,0.4);
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.footer-brand { font-size: 1.1rem; font-weight: 700; color: rgba(241,245,249,0.8); }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { color: rgba(241,245,249,0.4); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
-.footer-links a:hover { color: rgba(241,245,249,0.7); }
-.footer-copy { width: 100%; text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.78rem; }
-
-/* ââââââââââ ANIMATIONS ââââââââââ */
-.particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-.particle { position: absolute; width: 3px; height: 3px; background: rgba(6,182,212,0.25); border-radius: 50%; animation: floatp linear infinite; }
-@keyframes floatp { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-10vh) scale(1); opacity: 0; } }
-.animate-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
-.animate-in.visible { opacity: 1; transform: translateY(0); }
-
-/* ââââââââââ RESPONSIVE ââââââââââ */
-@media (max-width: 900px) {
-  .nav-links .nav-link-text { display: none; }
-  .hero { padding: 100px 16px 60px; min-height: auto; }
-  .hero-split { flex-direction: column; gap: 40px; }
-  .hero-visual { order: -1; }
-  .twin-container { max-width: 340px; }
-  .hero-right { max-width: 100%; text-align: center; }
-  .hero-content { text-align: center; }
-  .social-proof-strip { justify-content: center; }
-  .form-card { max-width: 480px; margin: 0 auto; }
-  section { padding: 60px 16px; }
-  .video-grid { grid-template-columns: 1fr; }
-  .value-grid { grid-template-columns: 1fr; }
-  .testimonial-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; text-align: center; }
-  .footer-links { justify-content: center; }
-}
-@media (max-width: 480px) {
-  .nav { padding: 12px 16px; }
-  .hero { padding: 80px 12px 40px; }
-  .form-card { padding: 24px 20px; }
-}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 </style>
 </head>
 <body>
 
+<a href="#formCard" class="skip-link">Skip to application form</a>
 <div class="particles" id="particles"></div>
 
-<!-- ââââââââââ NAVIGATION ââââââââââ -->
+<!-- NAV -->
 <nav class="nav" id="mainNav">
-  <a href="#" class="nav-brand">
-    <div class="nav-logo">VT</div>
-    Virtual Twins
-  </a>
-  <div class="nav-links">
+  <a href="#" class="nav-brand"><div class="nav-logo">VT</div> Virtual Twins</a>
+  <div class="nav-links" id="navMenu">
     <a href="#how" class="nav-link-text">How It Works</a>
     <a href="#samples" class="nav-link-text">Samples</a>
     <a href="#faq" class="nav-link-text">FAQ</a>
     <a href="#formCard" class="nav-cta">Apply Now</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ââââââââââ HERO ââââââââââ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-split">
-    <!-- LEFT: Twin Visual -->
     <div class="hero-visual">
-      <div class="twin-container">
-        <div class="twin-glow"></div>
-        <img class="twin-img-real" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Real Estate Agent">
-        <img class="twin-img-digital" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Digital Twin">
-        <div class="twin-overlay-digital"></div>
-        <div class="twin-divider"></div>
-        <div class="twin-scan-line"></div>
-        <div class="twin-label-real">You</div>
-        <div class="twin-label-digital">Your Twin</div>
-      </div>
+      <div class="hero-img-glow"></div>
+      <img class="hero-img" src="images/hero.png" alt="Real estate agent in AI production studio" width="768" height="1024" fetchpriority="high">
     </div>
-
-    <!-- RIGHT: Text + Form -->
     <div class="hero-right">
       <div class="hero-content">
-        <div class="badge"><span class="dot"></span> Limited spots per market</div>
+        <div class="badge"><span class="dot"></span> Limited Spots Per Market</div>
         <h1>Your Digital Twin.<br><span class="gradient-text">Zero Filming Required.</span></h1>
         <p class="subtitle">We create AI-powered video content featuring your likeness, your brand, your market &mdash; delivered monthly at no cost to you.</p>
         <div class="social-proof-strip">
-          <div class="agent-avatars">
-            <img class="av" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Agent">
-            <img class="av" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Agent">
-            <img class="av" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Agent">
-            <img class="av" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Agent">
-            <div class="av-more">+47</div>
-          </div>
-          <div class="social-proof-text">
-            <strong>Agents are applying now</strong><br>
-            Spots filling up in RI, MA &amp; OH
+          <div class="social-proof-text"><strong>Agents are applying now</strong><br><span>Market availability:</span></div>
+          <div class="market-dots">
+            <div class="market-dot"><span class="dot-indicator filling"></span> RI</div>
+            <div class="market-dot"><span class="dot-indicator open"></span> MA</div>
+            <div class="market-dot"><span class="dot-indicator open"></span> OH</div>
           </div>
         </div>
       </div>
 
       <div class="form-card" id="formCard">
-        <h2>Apply in 10 Seconds</h2>
-        <p class="sub">It's completely <strong>free</strong> &mdash; no commitment</p>
-        <div class="field" id="field-name">
-          <label>Full Name</label>
-          <input type="text" id="fname" placeholder="e.g. Sarah Martinez" required>
-          <div class="error-msg">Please enter your name</div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+        <!-- Step 1 -->
+        <div class="form-step" data-step="1">
+          <h2>See What You Qualify For</h2>
+          <p class="form-sub">Takes 10 seconds. <strong>No commitment.</strong></p>
+          <div class="field" id="field-name"><label for="fname">Full Name</label><input type="text" id="fname" placeholder="e.g. Sarah Martinez" autocomplete="name"><div class="error-msg">Please enter your name</div></div>
+          <div class="field" id="field-phone"><label for="fphone">Phone Number</label><input type="tel" id="fphone" placeholder="(555) 123-4567" autocomplete="tel"><div class="error-msg">Please enter a valid phone number</div></div>
+          <div class="field" id="field-email"><label for="femail">Email</label><input type="email" id="femail" placeholder="sarah@example.com" autocomplete="email"><div class="error-msg">Please enter a valid email</div></div>
+          <button class="btn-primary" id="btn-step1"><span class="btn-text">See What I Qualify For &rarr;</span><div class="spinner"></div></button>
+          <p class="fine-print">No credit card. No filming. Just see your options.</p>
         </div>
-        <div class="field" id="field-phone">
-          <label>Phone Number</label>
-          <input type="tel" id="fphone" placeholder="(555) 123-4567" required>
-          <div class="error-msg">Please enter your phone number</div>
+
+        <!-- Step 2 -->
+        <div class="form-step" data-step="2" style="display:none">
+          <span class="back-link" onclick="showStep(1)">&larr; Back</span>
+          <h2>Your Market</h2>
+          <p class="form-sub">Helps us match you with <strong>local content</strong></p>
+          <div class="field" id="field-state"><label for="fstate">State</label><select id="fstate"><option value="">Select your state...</option><option value="RI">Rhode Island</option><option value="MA">Massachusetts</option><option value="OH">Ohio</option><option value="Other">Other</option></select><div class="error-msg">Please select your state</div></div>
+          <div class="field" id="field-city"><label for="fcity">City / Market Area</label><input type="text" id="fcity" placeholder="e.g. Providence, Boston, Columbus"></div>
+          <div class="field" id="field-brokerage"><label for="fbrokerage">Brokerage Name</label><input type="text" id="fbrokerage" placeholder="e.g. Keller Williams, RE/MAX"></div>
+          <button class="btn-primary" id="btn-step2"><span class="btn-text">Almost There &mdash; Next Step &rarr;</span><div class="spinner"></div></button>
         </div>
-        <div class="field" id="field-email">
-          <label>Email</label>
-          <input type="email" id="femail" placeholder="sarah@example.com" required>
-          <div class="error-msg">Please enter a valid email</div>
+
+        <!-- Step 3 -->
+        <div class="form-step" data-step="3" style="display:none">
+          <span class="back-link" onclick="showStep(2)">&larr; Back</span>
+          <h2>Your Production</h2>
+          <p class="form-sub">This helps us customize your <strong>content tier</strong></p>
+          <div class="field" id="field-transactions"><label for="ftransactions">Annual Transactions</label><select id="ftransactions"><option value="">Select range...</option><option value="0-5">0 &ndash; 5</option><option value="6-15">6 &ndash; 15</option><option value="16-30">16 &ndash; 30</option><option value="31-50">31 &ndash; 50</option><option value="50+">50+</option></select><div class="error-msg">Please select your transaction range</div></div>
+          <div class="field" id="field-volume"><label for="fvolume">Total Volume</label><select id="fvolume"><option value="">Select range...</option><option value="<$1M">Less than $1M</option><option value="$1-5M">$1M &ndash; $5M</option><option value="$5-10M">$5M &ndash; $10M</option><option value="$10-25M">$10M &ndash; $25M</option><option value="$25M+">$25M+</option></select><div class="error-msg">Please select your volume range</div></div>
+          <button class="btn-primary" id="btn-step3"><span class="btn-text">One More Step &rarr;</span><div class="spinner"></div></button>
         </div>
-        <button class="btn-primary" id="submitBtn">See What I Qualify For &rarr;</button>
-        <p class="fine-print">No credit card. No filming. Just see your options.</p>
-        <div id="success" style="display:none;text-align:center;padding:20px 0;">
-          <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:white;">&#10003;</div>
-          <h3 style="font-size:1.3rem;margin-bottom:8px;color:white;">You're In &mdash; We'll Be in Touch</h3>
-          <p style="color:rgba(241,245,249,0.6);font-size:.95rem;">A member of the Virtual Twins team will reach out within 24 hours to discuss your personalized content plan.</p>
-          <div style="margin-top:20px;padding:16px;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);border-radius:12px;">
-            <p style="color:var(--accent-light);font-size:0.85rem;font-weight:600;margin-bottom:4px;">Know other agents who'd want this?</p>
-            <p style="color:rgba(241,245,249,0.5);font-size:0.8rem;">Share this page &mdash; help a colleague get free content too.</p>
+
+        <!-- Step 4 -->
+        <div class="form-step" data-step="4" style="display:none">
+          <span class="back-link" onclick="showStep(3)">&larr; Back</span>
+          <h2>Almost Done!</h2>
+          <p class="form-sub">Optional &mdash; helps us <strong>personalize your content</strong></p>
+          <div class="field" id="field-instagram"><label for="finstagram">Instagram Handle <span style="color:var(--text-light);font-weight:400">(optional)</span></label><input type="text" id="finstagram" placeholder="@yourhandle"></div>
+          <div class="field" id="field-facebook"><label for="ffacebook">Facebook Page <span style="color:var(--text-light);font-weight:400">(optional)</span></label><input type="text" id="ffacebook" placeholder="facebook.com/yourpage"></div>
+          <div class="field" id="field-referral"><label for="freferral">How did you hear about us?</label><select id="freferral"><option value="">Select one...</option><option value="Social Media Ad">Social Media Ad</option><option value="Friend/Colleague">Friend / Colleague</option><option value="Brokerage">Brokerage</option><option value="Commission Crowd">Commission Crowd</option><option value="Google Search">Google Search</option><option value="Other">Other</option></select></div>
+          <button class="btn-primary" id="btn-step4"><span class="btn-text">Submit My Application &rarr;</span><div class="spinner"></div></button>
+        </div>
+
+        <!-- Step 5: Success -->
+        <div class="form-step" data-step="5" style="display:none">
+          <div class="success-state">
+            <div class="success-check">&#10003;</div>
+            <h3>You're In &mdash; We'll Be in Touch Within 24 Hours</h3>
+            <p>A member of the Virtual Twins team will reach out to discuss your personalized content plan.</p>
+            <div class="referral-box">
+              <h4>Know other agents who'd want free professional content?</h4>
+              <p>Share this page &mdash; help a colleague level up their brand.</p>
+              <button class="copy-btn" id="copyShareLink">Copy Share Link</button>
+            </div>
           </div>
         </div>
       </div>
@@ -786,341 +357,254 @@ footer {
   </div>
 </section>
 
-<!-- ââââââââââ HOW IT WORKS ââââââââââ -->
+<!-- HOW IT WORKS -->
 <section class="how-section" id="how">
   <div class="inner animate-in">
     <div class="section-label">How It Works</div>
     <h2 class="section-title">Professional content.<br>Without the production.</h2>
     <p class="section-desc">Our team handles everything &mdash; from script to screen. You just show up in the final product.</p>
     <div class="steps-grid">
-      <div class="step-card">
-        <img class="step-img" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Submit Photos">
-        <div class="info">
-          <div class="step-num">1</div>
-          <h3>Submit Your Photos</h3>
-          <p>Upload a few reference images. Our team builds a photorealistic digital version of you &mdash; your face, your expressions, your presence.</p>
-        </div>
-      </div>
-      <div class="step-card">
-        <img class="step-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&q=80" alt="We Write Scripts">
-        <div class="info">
-          <div class="step-num">2</div>
-          <h3>We Write Your Scripts</h3>
-          <p>Market updates, closing tips, neighborhood spotlights &mdash; our writers craft content tailored to your market and brand. You approve or request changes.</p>
-        </div>
-      </div>
-      <div class="step-card">
-        <img class="step-img" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80" alt="AI Production">
-        <div class="info">
-          <div class="step-num">3</div>
-          <h3>Our Team Produces Your Video</h3>
-          <p>Using cutting-edge AI tools, our production team generates polished, professional video content featuring your digital twin, your voice, and your branding.</p>
-        </div>
-      </div>
-      <div class="step-card">
-        <img class="step-img" src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80" alt="Post and Grow">
-        <div class="info">
-          <div class="step-num">4</div>
-          <h3>Post &amp; Grow</h3>
-          <p>Receive finished videos monthly. Post to your socials. Build authority in your market while you focus on closing deals.</p>
-        </div>
-      </div>
+      <div class="step-card"><div class="step-img-wrap"><img src="images/step-1.png" alt="Agent uploading photos on tablet" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">1</div></div><div class="info"><h3>Submit Your Photos</h3><p>Upload a few reference images. Our team builds a photorealistic digital version of you &mdash; your face, your expressions, your presence.</p></div></div>
+      <div class="step-card"><div class="step-img-wrap"><img src="images/step-2.png" alt="Creative workspace with script monitors" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">2</div></div><div class="info"><h3>We Write Your Scripts</h3><p>Market updates, closing tips, neighborhood spotlights &mdash; our writers craft content tailored to your market and brand.</p></div></div>
+      <div class="step-card"><div class="step-img-wrap"><img src="images/step-3.png" alt="AI production studio with holographic displays" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">3</div></div><div class="info"><h3>Our Team Produces Your Video</h3><p>Using cutting-edge AI tools, our production team generates polished, professional video featuring your digital twin.</p></div></div>
+      <div class="step-card"><div class="step-img-wrap"><img src="images/step-4.png" alt="Agent viewing social media engagement" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">4</div></div><div class="info"><h3>Post &amp; Grow</h3><p>Receive finished videos monthly. Post to your socials. Build authority in your market while you focus on closing deals.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ââââââââââ SAMPLE CONTENT ââââââââââ -->
+<!-- SAMPLE CONTENT -->
 <section class="video-section" id="samples">
   <div class="inner animate-in">
-    <div class="section-label">Sample Content</div>
+    <div class="section-label" style="color:var(--accent-light)">Sample Content</div>
     <h2 class="section-title">See what your content<br>could look like</h2>
     <p class="section-desc">Real scripts. Real production quality. The only thing AI about it &mdash; is the twin.</p>
     <div class="video-grid">
-      <div class="video-card">
-        <div class="video-thumb">
-          <img src="https://images.unsplash.com/photo-1675452801464-34bcafa70f9a?w=640&q=80" alt="Providence Skyline">
-          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="video-tag" style="background:rgba(124,58,237,0.85);">Market Minute</div>
-        </div>
-        <div class="video-info">
-          <h4>"Providence Market Update &mdash; March 2026"</h4>
-          <p>60-second market update featuring your AI twin with local stats and branded visuals.</p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb">
-          <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=640&q=80" alt="Closing Tips">
-          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="video-tag" style="background:rgba(245,158,11,0.85);">Closing Secrets</div>
-        </div>
-        <div class="video-info">
-          <h4>"What First-Time Buyers Need to Know"</h4>
-          <p>Educational content that builds trust with your audience while generating leads.</p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=640&q=80" alt="Federal Hill Dining">
-          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="video-tag" style="background:rgba(16,185,129,0.85);">Neighborhood Notes</div>
-        </div>
-        <div class="video-info">
-          <h4>"Why Federal Hill Is Providence's Hidden Gem"</h4>
-          <p>Hyper-local neighborhood spotlight &mdash; your twin, your market, your expertise on display.</p>
-        </div>
-      </div>
+      <div class="video-card"><div class="video-thumb"><img src="images/thumb-market.png" alt="Market Minute thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(124,58,237,.85)">Market Minute</div></div><div class="video-info"><h4>Providence Market Update &mdash; March 2026</h4><p>60-second market update featuring your AI twin with local stats and branded visuals.</p></div></div>
+      <div class="video-card"><div class="video-thumb"><img src="images/thumb-closing.png" alt="Closing Secrets thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(245,158,11,.85)">Closing Secrets</div></div><div class="video-info"><h4>What First-Time Buyers Need to Know</h4><p>Educational content that builds trust with your audience while generating leads.</p></div></div>
+      <div class="video-card"><div class="video-thumb"><img src="images/thumb-neighborhood.png" alt="Neighborhood Spotlight thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(16,185,129,.85)">Neighborhood Notes</div></div><div class="video-info"><h4>Why Federal Hill Is Providence's Hidden Gem</h4><p>Hyper-local neighborhood spotlight &mdash; your twin, your market, your expertise on display.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ââââââââââ WHAT YOU GET ââââââââââ -->
+<!-- WHAT YOU GET -->
 <section class="value-section">
   <div class="inner animate-in">
     <div class="section-label">What You Get</div>
     <h2 class="section-title">Everything included.<br><span class="gradient-text">Zero cost to you.</span></h2>
     <p class="section-desc">We handle writing, production, editing, and delivery. You focus on what you do best &mdash; closing deals.</p>
     <div class="value-grid">
-      <div class="value-card">
-        <div class="value-icon" style="background:rgba(124,58,237,0.15);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22.54 6.42-.84-.84a1 1 0 0 0-1.42 0L4.42 21.42a1 1 0 0 0 0 1.42l.84.84"/><path d="M9.06 12.06 3.29 6.29a1 1 0 0 0-1.42 0l-.84.84"/><path d="M20.71 3.29a1 1 0 0 0-1.42 0L14 8.59"/><rect x="14" y="2" width="8" height="8" rx="1"/><circle cx="6" cy="18" r="4"/></svg>
-        </div>
-        <h3>Professional AI Video</h3>
-        <p>Monthly video content featuring your digital twin &mdash; market updates, tips, neighborhood spotlights, and more. Studio quality without the studio.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon" style="background:rgba(6,182,212,0.15);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg>
-        </div>
-        <h3>Custom Scripts &amp; Topics</h3>
-        <p>Our writers craft content for your specific market and brand. You approve everything before production. Your voice, your message.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon" style="background:rgba(245,158,11,0.15);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg>
-        </div>
-        <h3>Stand Out Instantly</h3>
-        <p>While other agents post selfie videos, you show up with polished, professional content that commands attention and builds authority.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon" style="background:rgba(16,185,129,0.15);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
-        </div>
-        <h3>Completely Free</h3>
-        <p>No subscription. No hidden fees. No catch. Professional content delivered monthly &mdash; we just need your permission and your photos.</p>
-      </div>
+      <div class="value-card"><div class="value-icon" style="background:rgba(124,58,237,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m8 21 4-4 4 4"/><path d="M12 17V11"/></svg></div><h3>Professional AI Video</h3><p>Monthly video content featuring your digital twin &mdash; market updates, tips, neighborhood spotlights, and more. Studio quality without the studio.</p></div>
+      <div class="value-card"><div class="value-icon" style="background:rgba(6,182,212,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg></div><h3>Custom Scripts &amp; Topics</h3><p>Our writers craft content for your specific market and brand. You approve everything before production. Your voice, your message.</p></div>
+      <div class="value-card"><div class="value-icon" style="background:rgba(245,158,11,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></div><h3>Stand Out Instantly</h3><p>While other agents post selfie videos, you show up with polished, professional content that commands attention and builds authority.</p></div>
+      <div class="value-card"><div class="value-icon" style="background:rgba(16,185,129,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></div><h3>Completely Free</h3><p>No subscription. No hidden fees. No catch. Professional content delivered monthly &mdash; we just need your permission and your photos.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ââââââââââ TESTIMONIALS ââââââââââ -->
-<section class="testimonial-section" id="reviews">
+<!-- SOCIAL PROOF -->
+<section class="proof-section">
   <div class="inner animate-in">
-    <div class="section-label">What Agents Are Saying</div>
-    <h2 class="section-title">Real agents. Real results.</h2>
-    <p class="section-desc">Hear from agents who are already using their digital twin to grow their brand.</p>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="quote-mark">&ldquo;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">I was skeptical at first, but the video quality blew me away. My clients think I hired a full production team. This has been a game-changer for my social media presence.</p>
-        <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Sarah M.">
-          <div class="testimonial-author-info">
-            <h4>Sarah M.</h4>
-            <span>Realtor &mdash; Providence, RI</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="quote-mark">&ldquo;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">I don't have time to film videos between showings. Virtual Twins lets me stay visible online without sacrificing a single listing appointment. The content practically posts itself.</p>
-        <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="James R.">
-          <div class="testimonial-author-info">
-            <h4>James R.</h4>
-            <span>Broker &mdash; Columbus, OH</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="quote-mark">&ldquo;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Three new buyer leads in my first month &mdash; all from the neighborhood spotlight video. People message me saying they feel like they already know me. That's the power of this.</p>
-        <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Karen P.">
-          <div class="testimonial-author-info">
-            <h4>Karen P.</h4>
-            <span>Agent &mdash; Boston, MA</span>
-          </div>
-        </div>
-      </div>
+    <div class="section-label" style="color:var(--accent-light)">Momentum</div>
+    <h2 class="section-title">Agents Across 3 Markets<br>Are Already Applying</h2>
+    <p class="section-desc">We're building something new. Get in early.</p>
+    <div class="metrics-row">
+      <div class="metric"><div class="number">50+</div><div class="label">Agents in the Pipeline</div></div>
+      <div class="metric"><div class="number">3</div><div class="label">Markets Served</div></div>
+      <div class="metric"><div class="number">24hr</div><div class="label">Review Turnaround</div></div>
+    </div>
+    <div class="trust-badges">
+      <div class="trust-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Data Protected</span></div>
+      <div class="trust-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg><span>100% Free</span></div>
+      <div class="trust-badge"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>No Commitment</span></div>
+      <div class="trust-badge"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg><span>Cancel Anytime</span></div>
     </div>
   </div>
 </section>
 
-<!-- ââââââââââ FAQ ââââââââââ -->
+<!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="inner animate-in">
     <div class="section-label">Questions</div>
     <h2 class="section-title">Everything you need to know</h2>
-    <p class="section-desc" style="margin-bottom:40px;">Still curious? We've got answers.</p>
+    <p class="section-desc">Still curious? We've got answers.</p>
     <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>Is this really free?</span><span class="arrow">&#9662;</span>
-        </button>
-        <div class="faq-a"><p>Yes &mdash; 100%. There are no hidden fees, subscriptions, or costs. Our content production is supported by marketing partnerships with local businesses. You receive professional video content at zero cost.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>What does the digital twin actually look like?</span><span class="arrow">&#9662;</span>
-        </button>
-        <div class="faq-a"><p>Your digital twin is a photorealistic AI representation built from your reference photos. It captures your appearance, expressions, and presence &mdash; delivering video content that looks and sounds like you, without you ever stepping in front of a camera.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>What do I have to do?</span><span class="arrow">&#9662;</span>
-        </button>
-        <div class="faq-a"><p>Submit your reference photos, review and approve scripts our writers create for you, and post the finished videos to your social media. That's it. We handle writing, production, editing, and delivery.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>How long does it take to get my first video?</span><span class="arrow">&#9662;</span>
-        </button>
-        <div class="faq-a"><p>After you submit your photos and we create your digital twin, your first video is typically delivered within 2&ndash;3 weeks. After that, new content arrives on a monthly basis.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>Can I control what my twin says?</span><span class="arrow">&#9662;</span>
-        </button>
-        <div class="faq-a"><p>Absolutely. Every script is sent for your review before production. You can request edits, suggest topics, or approve as-is. Nothing goes live without your sign-off.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>What if I don't like the content?</span><span class="arrow">&#9662;</span>
-        </button>
-        <div class="faq-a"><p>You have full approval rights. If a video doesn't meet your standards, we revise it. And if you ever decide this isn't for you, there's no contract locking you in &mdash; you can walk away anytime.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>What markets are you in?</span><span class="arrow">&#9662;</span>
-        </button>
-        <div class="faq-a"><p>We're currently onboarding agents in Rhode Island, Massachusetts, and Ohio &mdash; with more markets coming soon. Apply now to secure your spot.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          <span>What happens to my photos and data?</span><span class="arrow">&#9662;</span>
-        </button>
-        <div class="faq-a"><p>Your data is protected. We use your photos solely to create your digital twin and produce your content. You can request deletion of your data at any time. Full details are provided before you move forward.</p></div>
-      </div>
+      <div class="faq-item"><button class="faq-q"><span>Is this really free?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Yes &mdash; 100%. There are no hidden fees, subscriptions, or costs. Our content production is supported by marketing partnerships with local businesses. You receive professional video content at zero cost.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>What does the digital twin actually look like?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Your digital twin is a photorealistic AI representation built from your reference photos. It captures your appearance, expressions, and presence &mdash; delivering video content that looks and sounds like you, without you ever stepping in front of a camera.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>What do I have to do?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Submit your reference photos, review and approve scripts our writers create for you, and post the finished videos to your social media. That's it. We handle writing, production, editing, and delivery.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How long does it take to get my first video?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>After you submit your photos and we create your digital twin, your first video is typically delivered within 2&ndash;3 weeks. After that, new content arrives on a monthly basis.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>Can I control what my twin says?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Absolutely. Every script is sent for your review before production. You can request edits, suggest topics, or approve as-is. Nothing goes live without your sign-off.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>What if I don't like the content?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>You have full approval rights. If a video doesn't meet your standards, we revise it. And if you ever decide this isn't for you, there's no contract locking you in &mdash; you can walk away anytime.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>What markets are you in?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>We're currently onboarding agents in Rhode Island, Massachusetts, and Ohio &mdash; with more markets coming soon. Apply now to secure your spot.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>What happens to my photos and data?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Your data is protected. We use your photos solely to create your digital twin and produce your content. You can request deletion of your data at any time. Full details are provided before you move forward.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ââââââââââ FINAL CTA ââââââââââ -->
+<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="inner animate-in">
     <h2>Ready to meet your <span class="gradient-text">twin</span>?</h2>
     <p>Apply now &mdash; it takes 10 seconds and costs nothing. Spots are limited per market.</p>
     <a href="#formCard" class="btn-cta">See What I Qualify For &rarr;</a>
     <div class="final-trust">
-      <div class="final-trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Data protected
-      </div>
-      <div class="final-trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
-        100% free
-      </div>
-      <div class="final-trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        No commitment
-      </div>
+      <div class="final-trust-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Data protected</div>
+      <div class="final-trust-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg> 100% free</div>
+      <div class="final-trust-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No commitment</div>
     </div>
   </div>
 </section>
 
-<!-- âââââââââââ FOOTER ââââââââââ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand"><span class="gradient-text">Virtual Twins</span> AI</div>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="mailto:info@virtualtwinsai.com">Contact</a>
-    </div>
+    <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="mailto:info@virtualtwinsai.com">Contact</a></div>
     <div class="footer-copy">&copy; 2026 Virtual Twins AI. Providence, RI. All rights reserved.</div>
   </div>
 </footer>
 
+<div class="mobile-cta" id="mobileCta"><a href="#formCard">Apply Now &mdash; It's Free &rarr;</a></div>
+
 <script>
-// Nav scroll effect
-var nav = document.getElementById('mainNav');
-window.addEventListener('scroll', function() {
-  if (window.scrollY > 60) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
+/* CONFIG */
+var SUPABASE_URL='https://YOUR_PROJECT.supabase.co';
+var SUPABASE_ANON_KEY='YOUR_ANON_KEY';
+
+/* SUPABASE INIT */
+var sb=null;
+try{if(window.supabase&&SUPABASE_URL.indexOf('YOUR_PROJECT')===-1){sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}}catch(e){console.warn('Supabase init skipped:',e);}
+
+/* UTM */
+function captureUTMs(){var p=new URLSearchParams(window.location.search);return{utm_source:p.get('utm_source')||null,utm_medium:p.get('utm_medium')||null,utm_campaign:p.get('utm_campaign')||null,utm_content:p.get('utm_content')||null,utm_term:p.get('utm_term')||null,landing_url:window.location.href,user_agent:navigator.userAgent};}
+var utmData=captureUTMs();
+
+/* FORM STATE */
+var formState={currentStep:1,leadId:null,data:{}};
+var saved=sessionStorage.getItem('vt_form_state');
+if(saved){try{formState=JSON.parse(saved);}catch(e){}}
+if(formState.currentStep>1&&formState.currentStep<=5){showStep(formState.currentStep);}
+
+/* STEP TRANSITIONS */
+function showStep(n){
+  document.querySelectorAll('.form-step').forEach(function(el){el.style.display='none';});
+  var t=document.querySelector('[data-step="'+n+'"]');
+  if(!t)return;
+  t.style.display='block';t.style.opacity='0';
+  requestAnimationFrame(function(){t.style.opacity='1';});
+  var p=[0,40,65,80,95,100][n]||40;
+  document.getElementById('progressFill').style.width=p+'%';
+  formState.currentStep=n;
+  sessionStorage.setItem('vt_form_state',JSON.stringify(formState));
+}
+
+/* HELPERS */
+function setError(id){document.getElementById(id).classList.add('has-error');}
+function clearErrors(s){document.querySelectorAll('.form-step[data-step="'+s+'"] .field').forEach(function(f){f.classList.remove('has-error');});}
+function isValidEmail(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
+function fixEmailTypo(e){return e.replace(/@gmial\.com$/i,'@gmail.com').replace(/@gamil\.com$/i,'@gmail.com').replace(/@gmal\.com$/i,'@gmail.com').replace(/@yahooo\.com$/i,'@yahoo.com').replace(/@hotmal\.com$/i,'@hotmail.com').replace(/@outloo\.com$/i,'@outlook.com');}
+function setLoading(btn,l){if(l){btn.classList.add('loading');btn.disabled=true;}else{btn.classList.remove('loading');btn.disabled=false;}}
+function shakeBtn(btn){btn.style.animation='shake .4s ease';setTimeout(function(){btn.style.animation='';},400);}
+
+/* PHONE FORMAT */
+document.getElementById('fphone').addEventListener('input',function(e){
+  var x=e.target.value.replace(/\D/g,'').substring(0,10),f='';
+  if(x.length>0)f='('+x.substring(0,3);
+  if(x.length>=3)f+=') '+x.substring(3,6);
+  if(x.length>=6)f+='-'+x.substring(6,10);
+  e.target.value=f;
 });
 
-// Form validation + submit
-document.getElementById('submitBtn').onclick = function() {
-  var n = document.getElementById('fname').value.trim();
-  var p = document.getElementById('fphone').value.trim();
-  var e = document.getElementById('femail').value.trim();
-  var valid = true;
-  // Reset
-  ['field-name','field-phone','field-email'].forEach(function(id){ document.getElementById(id).classList.remove('has-error'); });
-  if (!n) { document.getElementById('field-name').classList.add('has-error'); valid = false; }
-  if (!p) { document.getElementById('field-phone').classList.add('has-error'); valid = false; }
-  if (!e || e.indexOf('@') === -1) { document.getElementById('field-email').classList.add('has-error'); valid = false; }
-  if (!valid) {
-    this.style.animation = 'shake 0.4s ease';
-    var btn = this;
-    setTimeout(function() { btn.style.animation = ''; }, 400);
-    return;
-  }
-  console.log('Lead:', JSON.stringify({ name: n, phone: p, email: e, ts: new Date().toISOString() }));
-  document.querySelectorAll('.field').forEach(function(f) { f.style.display = 'none'; });
-  this.style.display = 'none';
-  document.querySelector('.sub').style.display = 'none';
-  document.querySelector('#formCard h2').style.display = 'none';
-  document.querySelector('.fine-print').style.display = 'none';
-  document.getElementById('success').style.display = 'block';
-};
-
-// Clear error on focus
-document.querySelectorAll('.field input').forEach(function(input) {
-  input.addEventListener('focus', function() {
-    this.closest('.field').classList.remove('has-error');
-  });
+/* CLEAR ERRORS ON FOCUS */
+document.querySelectorAll('.field input,.field select').forEach(function(el){
+  el.addEventListener('focus',function(){this.closest('.field').classList.remove('has-error');});
 });
 
-// Scroll animations
-var obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.animate-in').forEach(function(el) { obs.observe(el); });
+/* SUPABASE OPS */
+async function insertLead(data){
+  if(!sb){console.log('Supabase not configured. Lead:',data);return true;}
+  try{var payload=Object.assign({},data,utmData,{status:'contact_captured'});
+  var r=await sb.from('landing_leads').insert(payload).select('id').single();
+  if(r.error){console.error('Insert failed:',r.error);return false;}
+  formState.leadId=r.data.id;sessionStorage.setItem('vt_form_state',JSON.stringify(formState));return true;
+  }catch(e){console.error('Insert error:',e);return false;}
+}
+async function updateLead(data,status){
+  if(!sb){console.log('Supabase not configured. Update:',data);return true;}
+  if(!formState.leadId){console.error('No lead ID');return false;}
+  try{data.status=status;
+  var r=await sb.from('landing_leads').update(data).eq('id',formState.leadId);
+  if(r.error){console.error('Update failed:',r.error);return false;}return true;
+  }catch(e){console.error('Update error:',e);return false;}
+}
 
-// Particles
-(function() {
-  var c = document.getElementById('particles');
-  for (var i = 0; i < 20; i++) {
-    var p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.animationDuration = (10 + Math.random() * 15) + 's';
-    p.style.animationDelay = Math.random() * 10 + 's';
-    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
-    c.appendChild(p);
-  }
-})();
+/* ANALYTICS EVENTS */
+function fireStep1Events(){if(typeof fbq!=='undefined')fbq('track','Lead');if(typeof gtag!=='undefined')gtag('event','form_step_1',{event_category:'lead_capture'});}
+function fireStep2Events(){if(typeof gtag!=='undefined')gtag('event','form_step_2',{event_category:'lead_capture'});}
+function fireStep3Events(){if(typeof gtag!=='undefined')gtag('event','form_step_3',{event_category:'lead_capture'});}
+function fireStep4Events(){if(typeof fbq!=='undefined')fbq('track','CompleteRegistration');if(typeof gtag!=='undefined')gtag('event','form_complete',{event_category:'lead_capture'});}
 
-// Shake animation
-var ss = document.createElement('style');
-ss.textContent = '@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}';
-document.head.appendChild(ss);
+/* STEP 1 */
+document.getElementById('btn-step1').addEventListener('click',async function(){
+  clearErrors(1);var n=document.getElementById('fname').value.trim(),p=document.getElementById('fphone').value.trim(),e=document.getElementById('femail').value.trim(),v=true;
+  if(!n){setError('field-name');v=false;}if(!p||p.replace(/\D/g,'').length<10){setError('field-phone');v=false;}if(!e||!isValidEmail(e)){setError('field-email');v=false;}
+  if(!v){shakeBtn(this);return;}e=fixEmailTypo(e);
+  setLoading(this,true);formState.data=Object.assign(formState.data,{name:n,phone:p,email:e});
+  var ok=await insertLead({name:n,phone:p,email:e});setLoading(this,false);
+  if(ok){fireStep1Events();showStep(2);}
+});
+
+/* STEP 2 */
+document.getElementById('btn-step2').addEventListener('click',async function(){
+  clearErrors(2);var s=document.getElementById('fstate').value,c=document.getElementById('fcity').value.trim(),b=document.getElementById('fbrokerage').value.trim();
+  if(!s){setError('field-state');shakeBtn(this);return;}
+  setLoading(this,true);formState.data=Object.assign(formState.data,{state:s,city_market:c,brokerage:b});
+  var ok=await updateLead({state:s,city_market:c||null,brokerage:b||null},'market_captured');setLoading(this,false);
+  if(ok){fireStep2Events();showStep(3);}
+});
+
+/* STEP 3 */
+document.getElementById('btn-step3').addEventListener('click',async function(){
+  clearErrors(3);var t=document.getElementById('ftransactions').value,vol=document.getElementById('fvolume').value,v=true;
+  if(!t){setError('field-transactions');v=false;}if(!vol){setError('field-volume');v=false;}
+  if(!v){shakeBtn(this);return;}
+  setLoading(this,true);formState.data=Object.assign(formState.data,{annual_transactions:t,total_volume:vol});
+  var ok=await updateLead({annual_transactions:t,total_volume:vol},'volume_captured');setLoading(this,false);
+  if(ok){fireStep3Events();showStep(4);}
+});
+
+/* STEP 4 */
+document.getElementById('btn-step4').addEventListener('click',async function(){
+  var ig=document.getElementById('finstagram').value.trim()||null,fb=document.getElementById('ffacebook').value.trim()||null,ref=document.getElementById('freferral').value||null;
+  setLoading(this,true);formState.data=Object.assign(formState.data,{instagram:ig,facebook:fb,referral_source:ref});
+  var ok=await updateLead({instagram:ig,facebook:fb,referral_source:ref},'complete');setLoading(this,false);
+  if(ok){fireStep4Events();showStep(5);}
+});
+
+/* SHARE LINK */
+document.getElementById('copyShareLink').addEventListener('click',function(){
+  var u=window.location.origin+window.location.pathname+'?utm_source=referral&utm_content='+(formState.leadId||'direct');
+  navigator.clipboard.writeText(u).then(function(){document.getElementById('copyShareLink').textContent='Copied!';setTimeout(function(){document.getElementById('copyShareLink').textContent='Copy Share Link';},2000);}).catch(function(){prompt('Copy this link:',u);});
+});
+
+/* NAV */
+var nav=document.getElementById('mainNav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
+document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navMenu').classList.toggle('open');});
+document.querySelectorAll('#navMenu a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('navMenu').classList.remove('open');});});
+
+/* MOBILE CTA HIDE WHEN FORM VISIBLE */
+var fc=document.getElementById('formCard'),mc=document.getElementById('mobileCta');
+if(mc&&fc){var fo=new IntersectionObserver(function(e){e.forEach(function(en){mc.style.opacity=en.isIntersecting?'0':'1';});},{threshold:.1});fo.observe(fc);mc.style.transition='opacity .3s';}
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var i=this.parentElement;document.querySelectorAll('.faq-item.open').forEach(function(o){if(o!==i)o.classList.remove('open');});i.classList.toggle('open');});});
+
+/* SCROLL ANIMATIONS */
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el);});
+
+/* PARTICLES */
+(function(){var c=document.getElementById('particles');if(!c)return;for(var i=0;i<20;i++){var p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDuration=(10+Math.random()*15)+'s';p.style.animationDelay=Math.random()*10+'s';p.style.width=p.style.height=(2+Math.random()*3)+'px';c.appendChild(p);}})();
 </script>
 </body>
 </html>
