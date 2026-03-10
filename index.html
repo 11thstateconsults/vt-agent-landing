@@ -8,12 +8,14 @@
 <meta property="og:title" content="Virtual Twins AI — Your Digital Twin Is Waiting">
 <meta property="og:description" content="Free professional video content for real estate agents. AI-powered. Zero filming required.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://vt-agent-landing.vercel.app/">
 <meta property="og:image" content="images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%238b5cf6'/><text x='50%25' y='50%25' text-anchor='middle' dy='.35em' font-size='18' fill='white' font-family='sans-serif' font-weight='bold'>VT</text></svg>">
+<link rel="icon" href="images/vt-logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://lesmihjdpquymwwilsuv.supabase.co" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -54,7 +56,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
 .nav.scrolled{background:rgba(15,23,42,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 32px;box-shadow:0 4px 30px rgba(0,0,0,.2)}
 .nav-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:#fff}
-.nav-logo{width:36px;height:36px;border-radius:8px;background:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#fff}
+.nav-logo-img{width:36px;height:36px;border-radius:0;object-fit:contain}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-link-text{color:rgba(255,255,255,.7);font-size:.9rem;font-weight:500;transition:color .2s}
 .nav-link-text:hover{color:#fff}
@@ -269,7 +271,7 @@ footer{background:#080c14;padding:40px 0;text-align:center}
 
 <!-- NAV -->
 <nav class="nav" id="mainNav">
-  <a href="#" class="nav-brand"><div class="nav-logo">VT</div> Virtual Twins</a>
+  <a href="#" class="nav-brand"><img src="images/vt-logo.svg" alt="VT" class="nav-logo-img" width="36" height="36"> Virtual Twins</a>
   <div class="nav-links" id="navMenu">
     <a href="#how" class="nav-link-text">How It Works</a>
     <a href="#samples" class="nav-link-text">Samples</a>
@@ -285,19 +287,19 @@ footer{background:#080c14;padding:40px 0;text-align:center}
   <div class="hero-split">
     <div class="hero-visual">
       <div class="hero-img-glow"></div>
-      <img class="hero-img" src="images/hero.png" alt="Real estate agent in AI production studio" width="768" height="1024" fetchpriority="high">
+      <img class="hero-img" src="images/hero.webp" alt="Real estate agent in AI production studio" width="768" height="1024" fetchpriority="high">
     </div>
     <div class="hero-right">
       <div class="hero-content">
         <div class="badge"><span class="dot"></span> Limited Spots Per Market</div>
         <h1>Your Digital Twin.<br><span class="gradient-text">Zero Filming Required.</span></h1>
-        <p class="subtitle">We create AI-powered video content featuring your likeness, your brand, your market &mdash; delivered monthly at no cost to you.</p>
+        <p class="subtitle">We create AI-powered video content featuring your likeness, your voice, your market &mdash; delivered monthly at no cost to you.</p>
         <div class="social-proof-strip">
           <div class="social-proof-text"><strong>Agents are applying now</strong><br><span>Market availability:</span></div>
           <div class="market-dots">
-            <div class="market-dot"><span class="dot-indicator filling"></span> RI</div>
+            <div class="market-dot"><span class="dot-indicator filling"></span> RI <small style="color:var(--warm);font-size:.65rem">Almost full</small></div>
             <div class="market-dot"><span class="dot-indicator open"></span> MA</div>
-            <div class="market-dot"><span class="dot-indicator open"></span> CT</div>
+            <div class="market-dot"><span class="dot-indicator open"></span> CT <small style="color:var(--accent-light);font-size:.65rem">New</small></div>
             <div class="market-dot"><span class="dot-indicator open"></span> OH</div>
           </div>
         </div>
@@ -314,7 +316,7 @@ footer{background:#080c14;padding:40px 0;text-align:center}
           <div class="field" id="field-phone"><label for="fphone">Phone Number</label><input type="tel" id="fphone" placeholder="(555) 123-4567" autocomplete="tel"><div class="error-msg">Please enter a valid phone number</div></div>
           <div class="field" id="field-email"><label for="femail">Email</label><input type="email" id="femail" placeholder="sarah@example.com" autocomplete="email"><div class="error-msg">Please enter a valid email</div></div>
           <button class="btn-primary" id="btn-step1"><span class="btn-text">See What I Qualify For &rarr;</span><div class="spinner"></div></button>
-          <p class="fine-print">No credit card. No filming. Just see your options.</p>
+          <p class="fine-print">No credit card. No studio required. Just see your options.</p>
         </div>
 
         <!-- Step 2 -->
@@ -374,10 +376,10 @@ footer{background:#080c14;padding:40px 0;text-align:center}
     <h2 class="section-title">Professional content.<br>Without the production.</h2>
     <p class="section-desc">Our team handles everything &mdash; from script to screen. You just show up in the final product.</p>
     <div class="steps-grid">
-      <div class="step-card"><div class="step-img-wrap"><img src="images/step-1.png" alt="Agent uploading photos on tablet" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">1</div></div><div class="info"><h3>Submit Your Photos</h3><p>Upload a few reference images. Our team builds a photorealistic digital version of you &mdash; your face, your expressions, your presence.</p></div></div>
-      <div class="step-card"><div class="step-img-wrap"><img src="images/step-2.png" alt="Creative workspace with script monitors" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">2</div></div><div class="info"><h3>We Write Your Scripts</h3><p>Market updates, closing tips, neighborhood spotlights &mdash; our writers craft content tailored to your market and brand.</p></div></div>
-      <div class="step-card"><div class="step-img-wrap"><img src="images/step-3.png" alt="AI production studio with holographic displays" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">3</div></div><div class="info"><h3>Our Team Produces Your Video</h3><p>Using cutting-edge AI tools, our production team generates polished, professional video featuring your digital twin.</p></div></div>
-      <div class="step-card"><div class="step-img-wrap"><img src="images/step-4.png" alt="Agent viewing social media engagement" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">4</div></div><div class="info"><h3>Post &amp; Grow</h3><p>Receive finished videos monthly. Post to your socials. Build authority in your market while you focus on closing deals.</p></div></div>
+      <div class="step-card"><div class="step-img-wrap"><img src="images/step-1.webp" alt="Agent recording a quick video clip on phone" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">1</div></div><div class="info"><h3>Record a Quick Clip</h3><p>Send us a short video clip, a one-minute voice recording, and a few reference photos. Our team builds a digital version of you &mdash; your face, your voice, your presence.</p></div></div>
+      <div class="step-card"><div class="step-img-wrap"><img src="images/step-2.webp" alt="Creative workspace with script monitors" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">2</div></div><div class="info"><h3>We Write Your Scripts</h3><p>Market updates, closing tips, neighborhood spotlights &mdash; our writers craft content tailored to your market and brand.</p></div></div>
+      <div class="step-card"><div class="step-img-wrap"><img src="images/step-3.webp" alt="Video editor working at professional editing studio" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">3</div></div><div class="info"><h3>Our Team Produces Your Video</h3><p>Using cutting-edge AI tools, our production team generates polished, professional video featuring your digital twin.</p></div></div>
+      <div class="step-card"><div class="step-img-wrap"><img src="images/step-4.webp" alt="Agent viewing social media engagement" width="1024" height="768" loading="lazy" decoding="async"><div class="step-num">4</div></div><div class="info"><h3>Post &amp; Grow</h3><p>Receive finished videos monthly. Post to your socials. Build authority in your market while you focus on closing deals.</p></div></div>
     </div>
   </div>
 </section>
@@ -389,9 +391,9 @@ footer{background:#080c14;padding:40px 0;text-align:center}
     <h2 class="section-title">See what your content<br>could look like</h2>
     <p class="section-desc">Real scripts. Real production quality. The only thing AI about it &mdash; is the twin.</p>
     <div class="video-grid">
-      <div class="video-card"><div class="video-thumb"><img src="images/thumb-market.png" alt="Market Minute thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(124,58,237,.85)">Market Minute</div></div><div class="video-info"><h4>Providence Market Update &mdash; March 2026</h4><p>60-second market update featuring your AI twin with local stats and branded visuals.</p></div></div>
-      <div class="video-card"><div class="video-thumb"><img src="images/thumb-closing.png" alt="Closing Secrets thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(245,158,11,.85)">Closing Secrets</div></div><div class="video-info"><h4>What First-Time Buyers Need to Know</h4><p>Educational content that builds trust with your audience while generating leads.</p></div></div>
-      <div class="video-card"><div class="video-thumb"><img src="images/thumb-neighborhood.png" alt="Neighborhood Spotlight thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(16,185,129,.85)">Neighborhood Notes</div></div><div class="video-info"><h4>Why Federal Hill Is Providence's Hidden Gem</h4><p>Hyper-local neighborhood spotlight &mdash; your twin, your market, your expertise on display.</p></div></div>
+      <div class="video-card"><div class="video-thumb"><img src="images/thumb-market.webp" alt="Market Minute thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(124,58,237,.85)">Market Minute</div></div><div class="video-info"><h4>Providence Market Update &mdash; March 2026</h4><p>60-second market update featuring your AI twin with local stats and branded visuals.</p></div></div>
+      <div class="video-card"><div class="video-thumb"><img src="images/thumb-closing.webp" alt="Closing Secrets thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(245,158,11,.85)">Closing Secrets</div></div><div class="video-info"><h4>What First-Time Buyers Need to Know</h4><p>Educational content that builds trust with your audience while generating leads.</p></div></div>
+      <div class="video-card"><div class="video-thumb"><img src="images/thumb-neighborhood.webp" alt="Neighborhood Spotlight thumbnail" width="1024" height="576" loading="lazy" decoding="async"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag" style="background:rgba(16,185,129,.85)">Neighborhood Notes</div></div><div class="video-info"><h4>Why Federal Hill Is Providence's Hidden Gem</h4><p>Hyper-local neighborhood spotlight &mdash; your twin, your market, your expertise on display.</p></div></div>
     </div>
   </div>
 </section>
@@ -432,7 +434,7 @@ footer{background:#080c14;padding:40px 0;text-align:center}
       </div>
       <div class="value-card">
         <div class="value-card-header"><div class="value-num">$0</div><h3>Completely Free</h3></div>
-        <p>No subscription. No hidden fees. No catch. Professional content delivered monthly &mdash; just bring your photos.</p>
+        <p>No subscription. No hidden fees. No catch. Professional content delivered monthly &mdash; just record a quick clip and you're in.</p>
         <ul class="value-features">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No credit card required &mdash; ever</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No contract or commitment</li>
@@ -470,14 +472,14 @@ footer{background:#080c14;padding:40px 0;text-align:center}
     <h2 class="section-title">Everything you need to know</h2>
     <p class="section-desc">Still curious? We've got answers.</p>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q"><span>Is this really free?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Yes &mdash; 100%. There are no hidden fees, subscriptions, or costs. Our content production is supported by marketing partnerships with local businesses. You receive professional video content at zero cost.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>What does the digital twin actually look like?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Your digital twin is a photorealistic AI representation built from your reference photos. It captures your appearance, expressions, and presence &mdash; delivering video content that looks and sounds like you, without you ever stepping in front of a camera.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>What do I have to do?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Submit your reference photos, review and approve scripts our writers create for you, and post the finished videos to your social media. That's it. We handle writing, production, editing, and delivery.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>How long does it take to get my first video?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>After you submit your photos and we create your digital twin, your first video is typically delivered within 2&ndash;3 weeks. After that, new content arrives on a monthly basis.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>Can I control what my twin says?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Absolutely. Every script is sent for your review before production. You can request edits, suggest topics, or approve as-is. Nothing goes live without your sign-off.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>What if I don't like the content?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>You have full approval rights. If a video doesn't meet your standards, we revise it. And if you ever decide this isn't for you, there's no contract locking you in &mdash; you can walk away anytime.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>What markets are you in?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>We're currently onboarding agents in Rhode Island, Massachusetts, Connecticut, and Ohio &mdash; with more markets coming soon. Apply now to secure your spot.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>What happens to my photos and data?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Your data is protected. We use your photos solely to create your digital twin and produce your content. You can request deletion of your data at any time. Full details are provided before you move forward.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Is this really free?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Yes &mdash; 100%. There are no hidden fees, subscriptions, or costs. Our content production is supported by marketing partnerships with local businesses. You receive professional video content at zero cost.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>What does the digital twin actually look like?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Your digital twin is a photorealistic AI representation built from your video clip, voice sample, and reference photos. It captures your appearance, voice, and presence &mdash; delivering video content that looks and sounds like you, without you ever stepping foot in a studio.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>What do I have to do?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Record a short video clip and a quick voice sample, send us a few reference photos, then review and approve scripts our writers create for you. Post the finished videos to your social media. That's it &mdash; we handle writing, production, editing, and delivery.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>How long does it take to get my first video?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>After you send us your clips and we create your digital twin, your first video is typically delivered within 2&ndash;3 weeks. After that, new content arrives on a monthly basis.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Can I control what my twin says?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Absolutely. Every script is sent for your review before production. You can request edits, suggest topics, or approve as-is. Nothing goes live without your sign-off.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>What if I don't like the content?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>You have full approval rights. If a video doesn't meet your standards, we revise it. And if you ever decide this isn't for you, there's no contract locking you in &mdash; you can walk away anytime.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>What markets are you in?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>We're currently onboarding agents in Rhode Island, Massachusetts, Connecticut, and Ohio &mdash; with more markets coming soon. Apply now to secure your spot.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>What happens to my photos and data?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Your data is protected. We use your recordings and photos solely to create your digital twin and produce your content. You can request deletion of your data at any time. Full details are provided before you move forward.</p></div></div>
     </div>
   </div>
 </section>
@@ -499,8 +501,8 @@ footer{background:#080c14;padding:40px 0;text-align:center}
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand"><span class="gradient-text">Virtual Twins</span> AI</div>
-    <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="mailto:info@virtualtwinsai.com">Contact</a></div>
+    <div class="footer-brand"><img src="images/vt-logo.svg" alt="VT" width="28" height="28" style="display:inline-block;vertical-align:middle;margin-right:8px"><span class="gradient-text">Virtual Twins</span> AI</div>
+    <div class="footer-links"><a href="#faq">Privacy Policy</a><a href="#faq">Terms of Service</a><a href="mailto:info@virtualtwinsai.com">Contact</a></div>
     <div class="footer-copy">&copy; 2026 Virtual Twins AI. Providence, RI. All rights reserved.</div>
   </div>
 </footer>
@@ -535,6 +537,7 @@ function showStep(n){
   requestAnimationFrame(function(){t.style.opacity='1';});
   var p=[0,40,65,80,95,100][n]||40;
   document.getElementById('progressFill').style.width=p+'%';
+  if(n===5){var mCta=document.getElementById('mobileCta');if(mCta)mCta.style.display='none';}
   formState.currentStep=n;
   sessionStorage.setItem('vt_form_state',JSON.stringify(formState));
 }
@@ -564,7 +567,15 @@ document.querySelectorAll('.field input,.field select').forEach(function(el){
 /* SUPABASE OPS */
 async function insertLead(data){
   if(!sb){console.log('Supabase not configured. Lead:',data);return true;}
-  try{var payload=Object.assign({},data,utmData,{status:'contact_captured'});
+  try{
+  /* Check for existing lead by email to prevent duplicates */
+  var existing=await sb.from('landing_leads').select('id').eq('email',data.email).order('created_at',{ascending:false}).limit(1);
+  if(existing.data&&existing.data.length>0){
+    formState.leadId=existing.data[0].id;sessionStorage.setItem('vt_form_state',JSON.stringify(formState));
+    var upd=await sb.from('landing_leads').update(Object.assign({},data,utmData,{status:'contact_captured'})).eq('id',formState.leadId);
+    if(upd.error){console.error('Update existing failed:',upd.error);return false;}return true;
+  }
+  var payload=Object.assign({},data,utmData,{status:'contact_captured'});
   var r=await sb.from('landing_leads').insert(payload).select('id').single();
   if(r.error){console.error('Insert failed:',r.error);return false;}
   formState.leadId=r.data.id;sessionStorage.setItem('vt_form_state',JSON.stringify(formState));return true;
@@ -580,10 +591,18 @@ async function updateLead(data,status){
 }
 
 /* ANALYTICS EVENTS */
-function fireStep1Events(){if(typeof fbq!=='undefined')fbq('track','Lead');if(typeof gtag!=='undefined')gtag('event','form_step_1',{event_category:'lead_capture'});}
+/* Google Ads conversion — replace AW-XXXXXXXXX/XXXXXXXXX with your real IDs */
+function gtagReportConversion(convLabel){if(typeof gtag!=='undefined'){gtag('event','conversion',{send_to:convLabel});}}
+function fireStep1Events(){
+  if(typeof fbq!=='undefined')fbq('track','Lead');
+  if(typeof gtag!=='undefined'){gtag('event','form_step_1',{event_category:'lead_capture'});gtagReportConversion('AW-XXXXXXXXX/step1_lead');}
+}
 function fireStep2Events(){if(typeof gtag!=='undefined')gtag('event','form_step_2',{event_category:'lead_capture'});}
 function fireStep3Events(){if(typeof gtag!=='undefined')gtag('event','form_step_3',{event_category:'lead_capture'});}
-function fireStep4Events(){if(typeof fbq!=='undefined')fbq('track','CompleteRegistration');if(typeof gtag!=='undefined')gtag('event','form_complete',{event_category:'lead_capture'});}
+function fireStep4Events(){
+  if(typeof fbq!=='undefined')fbq('track','CompleteRegistration');
+  if(typeof gtag!=='undefined'){gtag('event','form_complete',{event_category:'lead_capture'});gtagReportConversion('AW-XXXXXXXXX/complete_registration');}
+}
 
 /* STEP 1 */
 document.getElementById('btn-step1').addEventListener('click',async function(){
@@ -639,7 +658,7 @@ var fc=document.getElementById('formCard'),mc=document.getElementById('mobileCta
 if(mc&&fc){var fo=new IntersectionObserver(function(e){e.forEach(function(en){mc.style.opacity=en.isIntersecting?'0':'1';});},{threshold:.1});fo.observe(fc);mc.style.transition='opacity .3s';}
 
 /* FAQ */
-document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var i=this.parentElement;document.querySelectorAll('.faq-item.open').forEach(function(o){if(o!==i)o.classList.remove('open');});i.classList.toggle('open');});});
+document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var i=this.parentElement;document.querySelectorAll('.faq-item.open').forEach(function(o){if(o!==i){o.classList.remove('open');o.querySelector('.faq-q').setAttribute('aria-expanded','false');}});i.classList.toggle('open');this.setAttribute('aria-expanded',i.classList.contains('open')?'true':'false');});});
 
 /* SCROLL ANIMATIONS */
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
