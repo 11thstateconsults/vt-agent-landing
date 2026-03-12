@@ -16,6 +16,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/affiliates", "destination": "/affiliates.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

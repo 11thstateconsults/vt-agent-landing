@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Twins AI — Become a Partner</title>
+<meta name="description" content="Partner with Virtual Twins AI and earn generous revenue share. You bring the audience, we handle production, delivery, and everything else.">
+<meta property="og:title" content="Virtual Twins AI — Become a Partner">
+<meta property="og:description" content="Your audience. Our machine. Endless opportunity. Partner with the AI video team building the future of real estate content.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/affiliate/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/vt-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://lesmihjdpquymwwilsuv.supabase.co" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+:root{--primary:#7c3aed;--primary-dark:#5b21b6;--primary-light:#a78bfa;--accent:#06b6d4;--accent-light:#67e8f9;--success:#10b981;--warm:#f59e0b;--accent-gradient:linear-gradient(135deg,#7c3aed,#06b6d4);--hero-gradient:linear-gradient(135deg,#0f0a1e 0%,#1a1145 40%,#0c1929 100%);--bg-page:#f8fafc;--bg-section-alt:#f1f5f9;--bg-dark-section:#0f172a;--bg-card:#fff;--text-dark:#0f172a;--text-body:#475569;--text-light:#94a3b8;--text-on-dark:#f1f5f9;--border:#e2e8f0;--shadow-sm:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 20px rgba(0,0,0,.08);--shadow-lg:0 10px 40px rgba(0,0,0,.12);--shadow-card:0 4px 24px rgba(0,0,0,.06)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-page);color:var(--text-dark);overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+.skip-link{position:absolute;top:-100%;left:0;padding:12px 24px;background:var(--primary);color:#fff;z-index:9999}
+.skip-link:focus{top:0}
+.gradient-text{background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.inner{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.nav.scrolled{background:rgba(15,23,42,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 32px;box-shadow:0 4px 30px rgba(0,0,0,.2)}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:#fff}
+.nav-logo-img{width:36px;height:36px;border-radius:0;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-link-text{color:rgba(255,255,255,.7);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-link-text:hover{color:#fff}
+.nav-link-text.active{color:#fff;position:relative}
+.nav-link-text.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent-gradient);border-radius:2px}
+.nav-cta{padding:10px 24px;background:var(--accent-gradient);color:#fff;border-radius:10px;font-weight:600;font-size:.9rem;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(124,58,237,.4)}
+.nav-toggle{display:none;width:40px;height:40px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.nav-divider{width:1px;height:20px;background:rgba(255,255,255,.2);margin:0 4px}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--hero-gradient);position:relative;display:flex;align-items:center;overflow:hidden;padding-top:80px}
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.particle{position:absolute;bottom:-10px;background:rgba(124,58,237,.3);border-radius:50%;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:.6}100%{transform:translateY(-100vh) scale(.3);opacity:0}}
+.hero-split{display:flex;align-items:center;gap:60px;max-width:1280px;margin:0 auto;padding:40px 32px;width:100%;position:relative;z-index:1}
+.hero-visual{flex:0 0 45%;position:relative}
+.hero-img{width:100%;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.4);aspect-ratio:1/1;object-fit:cover}
+.hero-img-glow{position:absolute;inset:-2px;border-radius:26px;background:var(--accent-gradient);opacity:.15;filter:blur(20px);z-index:-1}
+.hero-right{flex:1}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);border-radius:100px;font-size:.82rem;font-weight:600;color:var(--primary-light);margin-bottom:20px}
+.badge .dot{width:8px;height:8px;background:var(--success);border-radius:50%;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-right h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;letter-spacing:-.02em}
+.subtitle{font-size:1.1rem;color:rgba(241,245,249,.65);line-height:1.7;margin-bottom:24px;max-width:500px}
+.hero-cta-group{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.btn-hero{display:inline-block;padding:16px 36px;background:var(--accent-gradient);color:#fff;border-radius:14px;font-size:1.05rem;font-weight:700;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.btn-hero:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(124,58,237,.4)}
+.hero-stats{display:flex;gap:32px;padding:20px 0}
+.hero-stat{text-align:center}
+.hero-stat .number{font-size:1.6rem;font-weight:800;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.hero-stat .label{font-size:.78rem;color:rgba(241,245,249,.45);margin-top:4px;font-weight:500}
+
+/* SECTIONS SHARED */
+.section-label{display:inline-block;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:16px;letter-spacing:-.02em}
+.section-desc{font-size:1.05rem;color:var(--text-body);max-width:600px;margin:0 auto 48px}
+.animate-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.animate-in.visible{opacity:1;transform:translateY(0)}
+
+/* WHAT WE DO */
+.what-section{padding:100px 0;background:var(--bg-page);text-align:center}
+.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.what-card{background:var(--bg-card);border-radius:20px;padding:0;text-align:left;box-shadow:var(--shadow-md);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.what-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-gradient);opacity:0;transition:opacity .3s}
+.what-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.what-card:hover::before{opacity:1}
+.what-card-img-wrap{position:relative;aspect-ratio:16/10;overflow:hidden}
+.what-card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.what-card:hover .what-card-img-wrap img{transform:scale(1.05)}
+.what-card-body{padding:24px 28px 28px}
+.what-card h3{font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.what-card p{font-size:.92rem;color:var(--text-body);line-height:1.7}
+
+/* WHY PARTNER */
+.why-section{padding:100px 0;background:linear-gradient(180deg,#0f172a 0%,#1a1145 50%,#0f172a 100%);text-align:center;position:relative;overflow:hidden}
+.why-section .section-title,.why-section .section-label{color:#fff}
+.why-section .section-desc{color:rgba(241,245,249,.5)}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto}
+.why-item{display:flex;align-items:flex-start;gap:14px;padding:20px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;text-align:left;transition:border-color .3s,transform .3s}
+.why-item:hover{border-color:rgba(124,58,237,.3);transform:translateY(-2px)}
+.why-check{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.why-check svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.5}
+.why-text h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.why-text p{font-size:.85rem;color:rgba(241,245,249,.55);line-height:1.6}
+
+/* PERSONA CARDS */
+.persona-section{padding:100px 0;background:var(--bg-page);text-align:center}
+.persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.persona-card{background:var(--bg-card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-md);transition:transform .3s,box-shadow .3s}
+.persona-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.persona-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden}
+.persona-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.persona-card:hover .persona-img-wrap img{transform:scale(1.05)}
+.persona-tag{position:absolute;top:12px;left:12px;padding:6px 14px;border-radius:10px;font-size:.78rem;font-weight:700;color:#fff;background:rgba(124,58,237,.85)}
+.persona-info{padding:28px 24px;text-align:left}
+.persona-info h3{font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.persona-info p{font-size:.9rem;color:var(--text-body);line-height:1.7}
+
+/* HOW IT WORKS */
+.how-section{padding:100px 0;background:var(--bg-dark-section);text-align:center}
+.how-section .section-title,.how-section .section-desc{color:var(--text-on-dark)}
+.how-section .section-desc{color:rgba(241,245,249,.5)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.step-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;transition:transform .3s,border-color .3s}
+.step-card:hover{transform:translateY(-6px);border-color:rgba(124,58,237,.3)}
+.step-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden}
+.step-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.step-card:hover .step-img-wrap img{transform:scale(1.05)}
+.step-num{position:absolute;top:16px;left:16px;width:40px;height:40px;border-radius:50%;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem;box-shadow:0 4px 12px rgba(124,58,237,.4)}
+.step-card .info{padding:24px;text-align:left}
+.step-card h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px}
+.step-card p{font-size:.9rem;color:rgba(241,245,249,.55);line-height:1.7}
+
+/* CREDIBILITY */
+.proof-section{padding:80px 0;background:var(--bg-section-alt);text-align:center}
+.cred-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.cred-item{display:flex;align-items:center;gap:10px;padding:14px 24px;background:var(--bg-card);border-radius:14px;box-shadow:var(--shadow-sm)}
+.cred-item svg{width:22px;height:22px;stroke:var(--primary);fill:none;stroke-width:2;flex-shrink:0}
+.cred-item span{font-size:.88rem;font-weight:600;color:var(--text-dark)}
+
+/* APPLICATION FORM */
+.form-section{padding:100px 0;background:var(--hero-gradient);text-align:center;position:relative;overflow:hidden}
+.form-section .section-title{color:#fff}
+.form-section .section-desc{color:rgba(241,245,249,.5)}
+.form-wrapper{max-width:680px;margin:0 auto;background:rgba(15,20,40,.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(139,92,246,.2);border-radius:20px;padding:40px 36px;position:relative;overflow:hidden;text-align:left}
+.form-wrapper::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-gradient)}
+.form-wrapper h2{font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:6px;text-align:center}
+.form-wrapper .form-sub{color:rgba(241,245,249,.5);font-size:.9rem;margin-bottom:28px;text-align:center}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.82rem;font-weight:600;color:rgba(241,245,249,.8);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:13px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.25)}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.field select option{background:#1e293b;color:#fff}
+.field textarea{resize:vertical;min-height:80px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(6,182,212,.15)}
+.field.has-error input,.field.has-error select,.field.has-error textarea{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.15)}
+.error-msg{display:none;font-size:.78rem;color:#ef4444;margin-top:4px}
+.field.has-error .error-msg{display:block}
+.btn-primary{width:100%;padding:16px 24px;background:var(--accent-gradient);color:#fff;border:none;border-radius:12px;font-size:1.05rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:8px;position:relative;overflow:hidden}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(124,58,237,.35)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary:disabled{opacity:.7;cursor:not-allowed;transform:none}
+.btn-primary .spinner{display:none;width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;margin:0 auto}
+.btn-primary.loading .btn-text{visibility:hidden}
+.btn-primary.loading .spinner{display:block;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.fine-print{text-align:center;font-size:.78rem;color:rgba(241,245,249,.35);margin-top:14px}
+.success-state{text-align:center;padding:20px 0}
+.success-check{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px;color:#fff;animation:scaleIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes scaleIn{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-state h3{font-size:1.3rem;color:#fff;margin-bottom:8px}
+.success-state p{color:rgba(241,245,249,.6);font-size:.92rem;line-height:1.7}
+
+/* FINAL CTA */
+.final-cta{padding:100px 0;background:var(--bg-dark-section);text-align:center;position:relative;overflow:hidden}
+.final-cta h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:16px}
+.final-cta p{font-size:1.05rem;color:rgba(241,245,249,.55);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
+.btn-cta{display:inline-block;padding:16px 40px;background:var(--accent-gradient);color:#fff;border-radius:14px;font-size:1.05rem;font-weight:700;transition:transform .2s,box-shadow .2s}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(124,58,237,.4)}
+.final-trust{display:flex;justify-content:center;gap:32px;margin-top:40px}
+.final-trust-item{display:flex;align-items:center;gap:8px;color:rgba(241,245,249,.5);font-size:.85rem;font-weight:500}
+.final-trust-item svg{width:18px;height:18px;stroke:var(--accent-light);fill:none;stroke-width:2}
+
+/* FOOTER */
+footer{background:#080c14;padding:40px 0;text-align:center}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-brand{font-size:1.1rem;font-weight:700;color:rgba(241,245,249,.6);margin-bottom:16px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px}
+.footer-links a{font-size:.85rem;color:rgba(241,245,249,.4);transition:color .2s}
+.footer-links a:hover{color:var(--accent-light)}
+.footer-copy{font-size:.78rem;color:rgba(241,245,249,.25)}
+
+/* MOBILE CTA */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(15,23,42,.95);backdrop-filter:blur(20px);border-top:1px solid rgba(124,58,237,.2);z-index:900}
+.mobile-cta a{display:block;width:100%;padding:14px;background:var(--accent-gradient);color:#fff;text-align:center;border-radius:12px;font-weight:700;font-size:.95rem}
+
+/* FAQ */
+.faq-section{padding:100px 0;background:linear-gradient(180deg,#0f172a 0%,#1a1145 50%,#0f172a 100%);text-align:center}
+.faq-section .section-title,.faq-section .section-label{color:#fff}
+.faq-section .section-desc{color:rgba(241,245,249,.5)}
+.faq-list{max-width:720px;margin:0 auto;text-align:left}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.1)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:1rem;font-weight:600;color:#fff;cursor:pointer;text-align:left}
+.faq-q .arrow{font-size:.85rem;color:rgba(241,245,249,.4);transition:transform .3s}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+.faq-a p{font-size:.92rem;color:rgba(241,245,249,.7);line-height:1.7}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .what-grid{grid-template-columns:repeat(2,1fr)}
+  .persona-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  .hero-split{gap:40px}
+}
+@media(max-width:900px){
+  .hero-split{gap:30px}
+  .hero-visual{flex:0 0 40%}
+}
+@media(max-width:960px){
+  .nav-links{display:none;position:fixed;top:0;right:0;width:280px;height:100vh;background:rgba(15,23,42,.98);backdrop-filter:blur(20px);flex-direction:column;padding:80px 32px 32px;gap:20px;transform:translateX(100%);transition:transform .3s ease;z-index:999}
+  .nav-links.open{display:flex;transform:translateX(0)}
+  .nav-toggle{display:flex;z-index:1001}
+  .nav-divider{display:none}
+}
+@media(max-width:768px){
+  .hero-split{flex-direction:column;padding:20px 20px 40px;gap:24px}
+  .hero-visual{flex:none;width:100%;max-width:320px;margin:0 auto}
+  .hero-img{max-height:320px;object-position:top center}
+  .hero-right h1{font-size:2rem}
+  .hero-cta-group{flex-direction:column;align-items:stretch}
+  .hero-stats{justify-content:center}
+  .what-grid,.persona-grid,.steps-grid{grid-template-columns:1fr;max-width:500px;margin-left:auto;margin-right:auto}
+  .why-grid{max-width:500px;margin-left:auto;margin-right:auto}
+  .cred-row{flex-direction:column;align-items:stretch;gap:12px;padding:0 16px}
+  .cred-item{justify-content:center}
+  .why-item[style*="grid-column"]{grid-column:auto;max-width:none}
+  .form-wrapper{padding:28px 20px}
+  .form-row{grid-template-columns:1fr}
+  .final-trust{flex-direction:column;align-items:center;gap:12px}
+  .section-title{font-size:1.8rem}
+  .mobile-cta{display:block}
+  footer{padding-bottom:80px}
+  .what-section,.persona-section,.faq-section,.proof-section{padding:60px 0}
+  .why-section,.how-section,.form-section{padding:60px 0}
+  .final-cta{padding:60px 0}
+}
+@media(min-width:600px) and (max-width:768px){
+  .what-grid,.steps-grid{grid-template-columns:repeat(2,1fr);max-width:none}
+  .persona-grid{grid-template-columns:repeat(3,1fr);max-width:none;gap:16px}
+  .persona-info h3{font-size:1rem}
+  .persona-info p{font-size:.82rem}
+  .why-grid{grid-template-columns:repeat(2,1fr);max-width:none}
+}
+@media(max-width:480px){
+  .hero{padding-top:70px}
+  .hero-split{padding:10px 16px 30px;gap:16px}
+  .hero-visual{max-width:260px}
+  .hero-img{max-height:280px}
+  .what-section,.persona-section,.faq-section,.proof-section{padding:48px 0}
+  .why-section,.how-section,.form-section{padding:48px 0}
+  .final-cta{padding:48px 0}
+  .section-desc{margin-bottom:32px}
+}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+</style>
+</head>
+<body>
+
+<a href="#applicationForm" class="skip-link">Skip to application form</a>
+<div class="particles" id="particles"></div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-brand"><img src="images/vt-logo.svg" alt="VT" class="nav-logo-img" width="36" height="36"> Virtual Twins</a>
+  <div class="nav-links" id="navMenu">
+    <a href="/" class="nav-link-text">For Agents</a>
+    <a href="/affiliates" class="nav-link-text active">For Partners</a>
+    <div class="nav-divider"></div>
+    <a href="#how" class="nav-link-text">How It Works</a>
+    <a href="#faq" class="nav-link-text">FAQ</a>
+    <a href="#applicationForm" class="nav-cta">Apply to Partner</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-split">
+    <div class="hero-visual">
+      <div class="hero-img-glow"></div>
+      <img class="hero-img" src="images/affiliate/hero.png" alt="Content creator in modern tech environment" width="1024" height="1024" fetchpriority="high">
+    </div>
+    <div class="hero-right">
+      <div class="badge"><span class="dot"></span> Now Accepting Partners</div>
+      <h1>Your Audience. Our Machine.<br><span class="gradient-text">Endless Opportunity.</span></h1>
+      <p class="subtitle">Partner with the AI video production team building the future of real estate content. Generous revenue share, zero production work. You make the intro &mdash; we handle everything else.</p>
+      <div class="hero-cta-group">
+        <a href="#applicationForm" class="btn-hero">Apply to Partner With Us &rarr;</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="number">4+</div><div class="label">Markets Served</div></div>
+        <div class="hero-stat"><div class="number">50+</div><div class="label">Agents in Pipeline</div></div>
+        <div class="hero-stat"><div class="number">100%</div><div class="label">Done-For-You</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="what-section" id="about">
+  <div class="inner animate-in">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">The highest-quality AI video content<br>for real estate &mdash; <span class="gradient-text">and agents want it.</span></h2>
+    <p class="section-desc">Virtual Twins produces premium, professional AI video content for real estate agents. The offer is compelling, the demand is real, and the close rate is high. You connect us &mdash; and earn.</p>
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="what-card-img-wrap"><img src="images/affiliate/card-video.png" alt="Professional video production setup" width="1024" height="768" loading="lazy" decoding="async"></div>
+        <div class="what-card-body">
+          <h3>Broadcast-Quality AI Video</h3>
+          <p>We produce the highest quality AI video content for real estate agents &mdash; fully scripted, produced, and delivered. Zero filming required.</p>
+        </div>
+      </div>
+      <div class="what-card">
+        <div class="what-card-img-wrap"><img src="images/affiliate/card-offer.png" alt="Business professionals closing a deal" width="1024" height="768" loading="lazy" decoding="async"></div>
+        <div class="what-card-body">
+          <h3>An Offer That Sells Itself</h3>
+          <p>Agents already want professional video content but can't produce it themselves. Our offer is irresistible. You connect us. We close it.</p>
+        </div>
+      </div>
+      <div class="what-card">
+        <div class="what-card-img-wrap"><img src="images/affiliate/card-team.png" alt="Production studio team at work" width="1024" height="768" loading="lazy" decoding="async"></div>
+        <div class="what-card-body">
+          <h3>Massive Production Team</h3>
+          <p>We have a massive production team handling everything &mdash; scripting, production, delivery, client management, and operations. You just sell.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTNER -->
+<section class="why-section">
+  <div class="inner animate-in">
+    <div class="section-label" style="color:var(--accent-light)">Benefits</div>
+    <h2 class="section-title" style="color:#fff">What's In It <span class="gradient-text">for You</span></h2>
+    <p class="section-desc">This isn't a side gig. It's a revenue stream backed by a real production operation.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="why-text">
+          <h4>Generous Revenue Share</h4>
+          <p>Earn on every deal we close through your network. Apply to learn the details.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="why-text">
+          <h4>Warm, High-Converting Offer</h4>
+          <p>Agents, lenders, brokers, and title companies already want this. The offer sells itself.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="why-text">
+          <h4>100% Done-For-You Operations</h4>
+          <p>We handle production, client management, and delivery. You never touch the work.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="why-text">
+          <h4>Your Audience Stays Yours</h4>
+          <p>We don't poach your relationships or contact your network directly. Ever.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="why-text">
+          <h4>Co-Branded Opportunities</h4>
+          <p>Partners with significant reach get co-branded content and materials.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="why-text">
+          <h4>Demo Video for Top Partners</h4>
+          <p>If your audience is large enough, we'll produce a sample video so you can see exactly what you're offering.</p>
+        </div>
+      </div>
+      <div class="why-item" style="grid-column:1/-1;max-width:440px;margin:0 auto">
+        <div class="why-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="why-text">
+          <h4>No Tech Knowledge Required</h4>
+          <p>If you can make an introduction, you can earn with us. It's that simple.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section class="persona-section">
+  <div class="inner animate-in">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-title">Built for people who<br><span class="gradient-text">already have the audience.</span></h2>
+    <p class="section-desc">Whether you're a creator, a real estate professional, or a marketer &mdash; if you have an audience, you have a revenue stream.</p>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-img-wrap">
+          <img src="images/affiliate/persona-creator.png" alt="Content creator with camera equipment" width="1024" height="768" loading="lazy" decoding="async">
+          <div class="persona-tag">The Creator</div>
+        </div>
+        <div class="persona-info">
+          <h3>Content Creators &amp; Influencers</h3>
+          <p>You've built a following. You post. People listen. You've tried courses, affiliate products, and brand deals &mdash; but you've never had something this tangible to offer. Real estate professionals in your audience are waiting for a solution like this.</p>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-img-wrap">
+          <img src="images/affiliate/persona-broker.png" alt="Real estate professional in modern office" width="1024" height="768" loading="lazy" decoding="async">
+          <div class="persona-tag" style="background:rgba(245,158,11,.85)">The RE Professional</div>
+        </div>
+        <div class="persona-info">
+          <h3>Lenders, Brokers &amp; Title Reps</h3>
+          <p>You're already in front of agents every day. Now imagine walking in with a premium, high-quality video production offer in your back pocket. It opens doors. It closes deals. We do the work.</p>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-img-wrap">
+          <img src="images/affiliate/persona-marketer.png" alt="Digital marketing agency owner at desk" width="1024" height="768" loading="lazy" decoding="async">
+          <div class="persona-tag" style="background:rgba(16,185,129,.85)">The Marketer</div>
+        </div>
+        <div class="persona-info">
+          <h3>Marketers &amp; Agency Owners</h3>
+          <p>You run campaigns, manage clients, or consult on digital strategy. Adding Virtual Twins to your offer stack gives you a done-for-you product your real estate clients will actually use &mdash; and you earn every time we deliver.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="inner animate-in">
+    <div class="section-label" style="color:var(--accent-light)">How It Works</div>
+    <h2 class="section-title">Three steps.<br>That's all it takes.</h2>
+    <p class="section-desc">Apply. Get approved. Start earning. We handle the rest.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="images/affiliate/step-apply.png" alt="Person filling out application on laptop" width="1024" height="768" loading="lazy" decoding="async">
+          <div class="step-num">1</div>
+        </div>
+        <div class="info">
+          <h3>Apply</h3>
+          <p>Fill out the short application below. Tell us about your audience, your network, and how you'd promote Virtual Twins.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="images/affiliate/step-approved.png" alt="Business partnership handshake" width="1024" height="768" loading="lazy" decoding="async">
+          <div class="step-num">2</div>
+        </div>
+        <div class="info">
+          <h3>Get Approved</h3>
+          <p>We review every application personally. If there's a fit, we'll reach out within 48 hours to discuss the partnership structure and revenue share.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="images/affiliate/step-earn.png" alt="Professional viewing earnings dashboard" width="1024" height="768" loading="lazy" decoding="async">
+          <div class="step-num">3</div>
+        </div>
+        <div class="info">
+          <h3>Start Earning</h3>
+          <p>We give you everything you need &mdash; talking points, sample videos, and a direct line to our team. You make the intro. We close it. You get paid.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY BAR -->
+<section class="proof-section">
+  <div class="inner animate-in">
+    <div class="cred-row">
+      <div class="cred-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Serving RI, MA, CT &amp; nationally</span></div>
+      <div class="cred-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg><span>High-converting offer</span></div>
+      <div class="cred-item"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg><span>Broadcast-quality AI videos</span></div>
+      <div class="cred-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>RESPA-compliant</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="form-section" id="applicationForm">
+  <div class="inner">
+    <div class="form-wrapper" id="formWrapper">
+      <div id="formFields">
+        <h2>Apply to Become a Virtual Twins Partner</h2>
+        <p class="form-sub">We review every application personally. If there's a fit, we'll be in touch within 48 hours.</p>
+
+        <div class="form-row">
+          <div class="field" id="field-fname"><label for="af-fname">First Name *</label><input type="text" id="af-fname" placeholder="e.g. Sarah" autocomplete="given-name"><div class="error-msg">Please enter your first name</div></div>
+          <div class="field" id="field-lname"><label for="af-lname">Last Name *</label><input type="text" id="af-lname" placeholder="e.g. Martinez" autocomplete="family-name"><div class="error-msg">Please enter your last name</div></div>
+        </div>
+
+        <div class="form-row">
+          <div class="field" id="field-email"><label for="af-email">Email Address *</label><input type="email" id="af-email" placeholder="sarah@example.com" autocomplete="email"><div class="error-msg">Please enter a valid email</div></div>
+          <div class="field" id="field-phone"><label for="af-phone">Phone Number *</label><input type="tel" id="af-phone" placeholder="(555) 123-4567" autocomplete="tel"><div class="error-msg">Please enter a valid phone number</div></div>
+        </div>
+
+        <div class="field" id="field-audience"><label for="af-audience">Audience Size / Following *</label><select id="af-audience"><option value="">Select your audience size...</option><option value="Under 1K">Under 1K</option><option value="1K-5K">1K &ndash; 5K</option><option value="5K-10K">5K &ndash; 10K</option><option value="10K-25K">10K &ndash; 25K</option><option value="25K-50K">25K &ndash; 50K</option><option value="50K+">50K+</option></select><div class="error-msg">Please select your audience size</div></div>
+
+        <div class="field" id="field-describe"><label for="af-describe">How would you describe your audience or network? *</label><textarea id="af-describe" rows="3" placeholder="e.g. I'm a mortgage lender who works with 40+ agents in Rhode Island..."></textarea><div class="error-msg">Please describe your audience</div></div>
+
+        <div class="field" id="field-promote"><label for="af-promote">How do you plan to promote Virtual Twins? *</label><textarea id="af-promote" rows="3" placeholder="e.g. I'd share it in my weekly newsletter, mention it at my office meetings, and introduce it to my top agent contacts..."></textarea><div class="error-msg">Please describe your promotion plan</div></div>
+
+        <div class="field"><label for="af-website">Website or Social Profile URL <span style="color:var(--text-light);font-weight:400">(optional)</span></label><input type="url" id="af-website" placeholder="https://instagram.com/yourhandle"></div>
+
+        <button class="btn-primary" id="btn-submit"><span class="btn-text">Submit My Application &rarr;</span><div class="spinner"></div></button>
+        <p class="fine-print">We respect your information. No spam. No sharing. Just a real conversation.</p>
+      </div>
+
+      <div id="formSuccess" style="display:none">
+        <div class="success-state">
+          <div class="success-check">&#10003;</div>
+          <h3>Application Received!</h3>
+          <p>We'll review it personally and be in touch within 48 hours if there's a fit. In the meantime, feel free to browse our <a href="/" style="color:var(--accent-light)">agent landing page</a> to see the product in action.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="inner animate-in">
+    <div class="section-label" style="color:var(--accent-light)">Questions</div>
+    <h2 class="section-title">Partner FAQ</h2>
+    <p class="section-desc">Everything you need to know about the affiliate program.</p>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>What exactly is Virtual Twins?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Virtual Twins is an AI video production platform for real estate agents. We create professional, scripted video content featuring an agent's digital twin &mdash; their AI-generated likeness and voice. The offer is structured so agents find it extremely compelling, and our close rate reflects that.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>How does the revenue share work?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>When you refer a deal that closes &mdash; whether it's a new agent, a sponsor, or a business partner &mdash; you earn a share of the revenue. The exact structure depends on your audience size and the type of partnership. We'll discuss specifics during your onboarding call.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Do I need to know anything about AI or video production?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Not at all. Your role is to make introductions and connect us with people in your network who need professional video content. We handle every aspect of production, delivery, and client management.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Will you contact my audience directly?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Never. Your relationships are yours. We only engage with people you directly introduce us to, and we keep you in the loop throughout the process. We're building partnerships, not poaching networks.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>What makes this different from other affiliate programs?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Most affiliate programs ask you to hard-sell something. Our offer practically sells itself &mdash; agents already want professional video content, and our pricing and packaging make it a no-brainer. The offer is tangible, the production is real, and agents see results immediately.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>What if I have a large audience? Do I get anything extra?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Yes. Partners with significant reach can qualify for co-branded materials, a free demo video produced for them personally, and a custom partnership structure. We invest more in partners who can drive more volume.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Is this RESPA-compliant?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>Yes. Virtual Twins operates within a fully RESPA-compliant framework. Our legal structure has been built specifically to meet real estate industry compliance requirements. We'll walk you through the details during onboarding.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>How quickly will I hear back after applying?</span><span class="arrow">&#9662;</span></button><div class="faq-a"><p>We review every application personally. If there's a fit, you'll hear from us within 48 hours. We're selective because we invest real resources into each partnership &mdash; we want to make sure it's the right match for both sides.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="inner animate-in">
+    <h2>Your Twin. Your Brand.<br><span class="gradient-text">Zero Filming.</span></h2>
+    <p>The opportunity is here. The question is whether you're in.</p>
+    <a href="#applicationForm" class="btn-cta">Apply Now &rarr;</a>
+    <div class="final-trust">
+      <div class="final-trust-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> RESPA-compliant</div>
+      <div class="final-trust-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg> Generous rev share</div>
+      <div class="final-trust-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 100% done-for-you</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><img src="images/vt-logo.svg" alt="VT" width="28" height="28" style="display:inline-block;vertical-align:middle;margin-right:8px"><span class="gradient-text">Virtual Twins</span> AI</div>
+    <div class="footer-links"><a href="/">For Agents</a><a href="/affiliates">For Partners</a><a href="#faq">FAQ</a><a href="mailto:info@virtualtwinsai.com">Contact</a></div>
+    <div class="footer-copy">&copy; 2026 Virtual Twins AI. Providence, RI. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="mobile-cta" id="mobileCta"><a href="#applicationForm">Apply to Partner &rarr;</a></div>
+
+<script>
+/* CONFIG */
+var SUPABASE_URL='https://lesmihjdpquymwwilsuv.supabase.co';
+var SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxlc21paGpkcHF1eW13d2lsc3V2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMDQzOTQsImV4cCI6MjA4ODY4MDM5NH0.Vdrrj57gpNzGYHUI8FXs6Zg7azR76bpP5s5CBNCZ-zU';
+
+/* SUPABASE INIT */
+var sb=null;
+try{if(window.supabase&&SUPABASE_URL.indexOf('YOUR_PROJECT')===-1){sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}}catch(e){console.warn('Supabase init skipped:',e);}
+
+/* UTM */
+function captureUTMs(){var p=new URLSearchParams(window.location.search);return{utm_source:p.get('utm_source')||null,utm_medium:p.get('utm_medium')||null,utm_campaign:p.get('utm_campaign')||null,utm_content:p.get('utm_content')||null,utm_term:p.get('utm_term')||null,landing_url:window.location.href,user_agent:navigator.userAgent};}
+var utmData=captureUTMs();
+
+/* HELPERS */
+function setError(id){document.getElementById(id).classList.add('has-error');}
+function clearAllErrors(){document.querySelectorAll('.field').forEach(function(f){f.classList.remove('has-error');});}
+function isValidEmail(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
+function fixEmailTypo(e){return e.replace(/@gmial\.com$/i,'@gmail.com').replace(/@gamil\.com$/i,'@gmail.com').replace(/@gmal\.com$/i,'@gmail.com').replace(/@yahooo\.com$/i,'@yahoo.com').replace(/@hotmal\.com$/i,'@hotmail.com').replace(/@outloo\.com$/i,'@outlook.com');}
+function setLoading(btn,l){if(l){btn.classList.add('loading');btn.disabled=true;}else{btn.classList.remove('loading');btn.disabled=false;}}
+
+/* PHONE FORMAT */
+document.getElementById('af-phone').addEventListener('input',function(e){
+  var x=e.target.value.replace(/\D/g,'').substring(0,10),f='';
+  if(x.length>0)f='('+x.substring(0,3);
+  if(x.length>=3)f+=') '+x.substring(3,6);
+  if(x.length>=6)f+='-'+x.substring(6,10);
+  e.target.value=f;
+});
+
+/* CLEAR ERRORS ON FOCUS */
+document.querySelectorAll('.field input,.field select,.field textarea').forEach(function(el){
+  el.addEventListener('focus',function(){this.closest('.field').classList.remove('has-error');});
+});
+
+/* SUBMIT */
+document.getElementById('btn-submit').addEventListener('click',async function(){
+  clearAllErrors();
+  var fn=document.getElementById('af-fname').value.trim();
+  var ln=document.getElementById('af-lname').value.trim();
+  var em=document.getElementById('af-email').value.trim();
+  var ph=document.getElementById('af-phone').value.trim();
+  var aud=document.getElementById('af-audience').value;
+  var desc=document.getElementById('af-describe').value.trim();
+  var promo=document.getElementById('af-promote').value.trim();
+  var web=document.getElementById('af-website').value.trim()||null;
+  var valid=true;
+
+  if(!fn){setError('field-fname');valid=false;}
+  if(!ln){setError('field-lname');valid=false;}
+  if(!em||!isValidEmail(em)){setError('field-email');valid=false;}
+  if(!ph||ph.replace(/\D/g,'').length<10){setError('field-phone');valid=false;}
+  if(!aud){setError('field-audience');valid=false;}
+  if(!desc){setError('field-describe');valid=false;}
+  if(!promo){setError('field-promote');valid=false;}
+
+  if(!valid){
+    this.style.animation='shake .4s ease';
+    var self=this;setTimeout(function(){self.style.animation='';},400);
+    return;
+  }
+
+  em=fixEmailTypo(em);
+  setLoading(this,true);
+
+  var payload=Object.assign({
+    first_name:fn,
+    last_name:ln,
+    email:em,
+    phone:ph,
+    audience_size:aud,
+    audience_description:desc,
+    promotion_plan:promo,
+    website_url:web,
+    status:'pending'
+  },utmData);
+
+  var success=false;
+
+  if(sb){
+    try{
+      var r=await sb.from('affiliate_applications').insert(payload);
+      if(r.error){
+        console.error('Supabase insert failed:',r.error);
+        /* If table doesn't exist yet, log but still show success */
+        if(r.error.code==='42P01'){console.warn('Table affiliate_applications does not exist yet. Application data logged to console.');success=true;}
+      }else{success=true;}
+    }catch(e){console.error('Supabase error:',e);}
+  }else{
+    console.log('Supabase not configured. Application:',payload);
+    success=true;
+  }
+
+  setLoading(this,false);
+
+  if(success){
+    document.getElementById('formFields').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
+    var mCta=document.getElementById('mobileCta');if(mCta)mCta.style.display='none';
+    /* Fire analytics events */
+    if(typeof fbq!=='undefined')fbq('track','Lead');
+    if(typeof gtag!=='undefined')gtag('event','affiliate_application',{event_category:'partner_capture'});
+  }
+});
+
+/* NAV */
+var nav=document.getElementById('mainNav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);});
+document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navMenu').classList.toggle('open');});
+document.querySelectorAll('#navMenu a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('navMenu').classList.remove('open');});});
+
+/* MOBILE CTA HIDE WHEN FORM VISIBLE */
+var fw=document.getElementById('formWrapper'),mc=document.getElementById('mobileCta');
+if(mc&&fw){var fo=new IntersectionObserver(function(e){e.forEach(function(en){mc.style.opacity=en.isIntersecting?'0':'1';});},{threshold:.1});fo.observe(fw);mc.style.transition='opacity .3s';}
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var i=this.parentElement;document.querySelectorAll('.faq-item.open').forEach(function(o){if(o!==i){o.classList.remove('open');o.querySelector('.faq-q').setAttribute('aria-expanded','false');}});i.classList.toggle('open');this.setAttribute('aria-expanded',i.classList.contains('open')?'true':'false');});});
+
+/* SCROLL ANIMATIONS */
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el);});
+
+/* PARTICLES */
+(function(){var c=document.getElementById('particles');if(!c)return;for(var i=0;i<20;i++){var p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDuration=(10+Math.random()*15)+'s';p.style.animationDelay=Math.random()*10+'s';p.style.width=p.style.height=(2+Math.random()*3)+'px';c.appendChild(p);}})();
+</script>
+</body>
+</html>

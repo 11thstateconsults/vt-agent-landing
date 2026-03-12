@@ -60,6 +60,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-link-text{color:rgba(255,255,255,.7);font-size:.9rem;font-weight:500;transition:color .2s}
 .nav-link-text:hover{color:#fff}
+.nav-link-text.active{color:#fff;position:relative}
+.nav-link-text.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent-gradient);border-radius:2px}
+.nav-divider{width:1px;height:20px;background:rgba(255,255,255,.2);margin:0 4px}
 .nav-cta{padding:10px 24px;background:var(--accent-gradient);color:#fff;border-radius:10px;font-weight:600;font-size:.9rem;transition:transform .2s,box-shadow .2s}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(124,58,237,.4)}
 .nav-toggle{display:none;width:40px;height:40px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
@@ -240,26 +243,52 @@ footer{background:#080c14;padding:40px 0;text-align:center}
   .value-grid{grid-template-columns:repeat(2,1fr)}
   .hero-split{gap:40px}
 }
-@media(max-width:768px){
+@media(max-width:900px){
+  .hero-split{gap:30px}
+  .hero-visual{flex:0 0 40%}
+  .social-proof-strip{flex-direction:column;align-items:flex-start;gap:8px}
+}
+@media(max-width:960px){
   .nav-links{display:none;position:fixed;top:0;right:0;width:280px;height:100vh;background:rgba(15,23,42,.98);backdrop-filter:blur(20px);flex-direction:column;padding:80px 32px 32px;gap:20px;transform:translateX(100%);transition:transform .3s ease;z-index:999}
   .nav-links.open{display:flex;transform:translateX(0)}
   .nav-toggle{display:flex;z-index:1001}
-  .hero-split{flex-direction:column;padding:20px 20px 60px;gap:30px}
-  .hero-visual{flex:none;width:100%;max-width:400px;margin:0 auto}
+  .nav-divider{display:none}
+}
+@media(max-width:768px){
+  .hero-split{flex-direction:column;padding:20px 20px 40px;gap:24px}
+  .hero-visual{flex:none;width:100%;max-width:280px;margin:0 auto}
+  .hero-img{aspect-ratio:3/4;max-height:320px;object-position:top center}
   .hero-right h1{font-size:2rem}
-  .steps-grid,.video-grid,.value-grid{grid-template-columns:1fr;max-width:500px;margin:0 auto}
+  .steps-grid,.video-grid{grid-template-columns:1fr;max-width:500px;margin:0 auto}
+  .value-grid{grid-template-columns:1fr;max-width:500px;margin:0 auto}
   .metrics-row{flex-direction:column;gap:32px}
   .trust-badges{flex-direction:column;align-items:center}
   .final-trust{flex-direction:column;align-items:center;gap:12px}
   .section-title{font-size:1.8rem}
   .mobile-cta{display:block}
   footer{padding-bottom:80px}
+  .how-section,.video-section,.faq-section,.proof-section{padding:60px 0}
+  .value-section{padding:60px 0}
+  .final-cta{padding:60px 0}
+}
+@media(min-width:600px) and (max-width:768px){
+  .steps-grid{grid-template-columns:repeat(2,1fr);max-width:none}
+  .video-grid{grid-template-columns:repeat(2,1fr);max-width:none}
+  .value-grid{grid-template-columns:repeat(2,1fr);max-width:none}
+  .metrics-row{flex-direction:row;gap:40px}
+  .trust-badges{flex-direction:row}
 }
 @media(max-width:480px){
   .hero{padding-top:70px}
-  .hero-split{padding:10px 16px 50px}
+  .hero-split{padding:10px 16px 30px;gap:16px}
+  .hero-visual{max-width:220px}
+  .hero-img{max-height:260px}
   .form-card{padding:24px 20px}
   .social-proof-strip{flex-direction:column;align-items:flex-start;gap:10px}
+  .how-section,.video-section,.faq-section,.proof-section{padding:48px 0}
+  .value-section{padding:48px 0}
+  .final-cta{padding:48px 0}
+  .section-desc{margin-bottom:32px}
 }
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 </style>
@@ -273,6 +302,9 @@ footer{background:#080c14;padding:40px 0;text-align:center}
 <nav class="nav" id="mainNav">
   <a href="#" class="nav-brand"><img src="images/vt-logo.svg" alt="VT" class="nav-logo-img" width="36" height="36"> Virtual Twins</a>
   <div class="nav-links" id="navMenu">
+    <a href="/" class="nav-link-text active">For Agents</a>
+    <a href="/affiliates" class="nav-link-text">For Partners</a>
+    <div class="nav-divider"></div>
     <a href="#how" class="nav-link-text">How It Works</a>
     <a href="#samples" class="nav-link-text">Samples</a>
     <a href="#faq" class="nav-link-text">FAQ</a>
