@@ -344,6 +344,47 @@ footer{background:#080c14;padding:40px 0;text-align:center}
   </div>
 </section>
 
+<!-- APPLICATION FORM -->
+<section class="form-section" id="applicationForm">
+  <div class="inner">
+    <div class="form-wrapper" id="formWrapper">
+      <div id="formFields">
+        <h2>Apply to Become a Virtual Twins Partner</h2>
+        <p class="form-sub">We review every application personally. If there's a fit, we'll be in touch within 48 hours.</p>
+
+        <div class="form-row">
+          <div class="field" id="field-fname"><label for="af-fname">First Name *</label><input type="text" id="af-fname" placeholder="e.g. Sarah" autocomplete="given-name"><div class="error-msg">Please enter your first name</div></div>
+          <div class="field" id="field-lname"><label for="af-lname">Last Name *</label><input type="text" id="af-lname" placeholder="e.g. Martinez" autocomplete="family-name"><div class="error-msg">Please enter your last name</div></div>
+        </div>
+
+        <div class="form-row">
+          <div class="field" id="field-email"><label for="af-email">Email Address *</label><input type="email" id="af-email" placeholder="sarah@example.com" autocomplete="email"><div class="error-msg">Please enter a valid email</div></div>
+          <div class="field" id="field-phone"><label for="af-phone">Phone Number *</label><input type="tel" id="af-phone" placeholder="(555) 123-4567" autocomplete="tel"><div class="error-msg">Please enter a valid phone number</div></div>
+        </div>
+
+        <div class="field" id="field-audience"><label for="af-audience">Audience Size / Following *</label><select id="af-audience"><option value="">Select your audience size...</option><option value="Under 1K">Under 1K</option><option value="1K-5K">1K &ndash; 5K</option><option value="5K-10K">5K &ndash; 10K</option><option value="10K-25K">10K &ndash; 25K</option><option value="25K-50K">25K &ndash; 50K</option><option value="50K+">50K+</option></select><div class="error-msg">Please select your audience size</div></div>
+
+        <div class="field" id="field-describe"><label for="af-describe">How would you describe your audience or network? *</label><textarea id="af-describe" rows="3" placeholder="e.g. I'm a mortgage lender who works with 40+ agents in Rhode Island..."></textarea><div class="error-msg">Please describe your audience</div></div>
+
+        <div class="field" id="field-promote"><label for="af-promote">How do you plan to promote Virtual Twins? *</label><textarea id="af-promote" rows="3" placeholder="e.g. I'd share it in my weekly newsletter, mention it at my office meetings, and introduce it to my top agent contacts..."></textarea><div class="error-msg">Please describe your promotion plan</div></div>
+
+        <div class="field"><label for="af-website">Website or Social Profile URL <span style="color:var(--text-light);font-weight:400">(optional)</span></label><input type="url" id="af-website" placeholder="https://instagram.com/yourhandle"></div>
+
+        <button class="btn-primary" id="btn-submit"><span class="btn-text">Submit My Application &rarr;</span><div class="spinner"></div></button>
+        <p class="fine-print">We respect your information. No spam. No sharing. Just a real conversation.</p>
+      </div>
+
+      <div id="formSuccess" style="display:none">
+        <div class="success-state">
+          <div class="success-check">&#10003;</div>
+          <h3>Application Received!</h3>
+          <p>We'll review it personally and be in touch within 48 hours if there's a fit. In the meantime, feel free to browse our <a href="/" style="color:var(--accent-light)">agent landing page</a> to see the product in action.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHY PARTNER -->
 <section class="why-section">
   <div class="inner animate-in">
@@ -494,47 +535,6 @@ footer{background:#080c14;padding:40px 0;text-align:center}
       <div class="cred-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg><span>High-converting offer</span></div>
       <div class="cred-item"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg><span>Broadcast-quality AI videos</span></div>
       <div class="cred-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>RESPA-compliant</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- APPLICATION FORM -->
-<section class="form-section" id="applicationForm">
-  <div class="inner">
-    <div class="form-wrapper" id="formWrapper">
-      <div id="formFields">
-        <h2>Apply to Become a Virtual Twins Partner</h2>
-        <p class="form-sub">We review every application personally. If there's a fit, we'll be in touch within 48 hours.</p>
-
-        <div class="form-row">
-          <div class="field" id="field-fname"><label for="af-fname">First Name *</label><input type="text" id="af-fname" placeholder="e.g. Sarah" autocomplete="given-name"><div class="error-msg">Please enter your first name</div></div>
-          <div class="field" id="field-lname"><label for="af-lname">Last Name *</label><input type="text" id="af-lname" placeholder="e.g. Martinez" autocomplete="family-name"><div class="error-msg">Please enter your last name</div></div>
-        </div>
-
-        <div class="form-row">
-          <div class="field" id="field-email"><label for="af-email">Email Address *</label><input type="email" id="af-email" placeholder="sarah@example.com" autocomplete="email"><div class="error-msg">Please enter a valid email</div></div>
-          <div class="field" id="field-phone"><label for="af-phone">Phone Number *</label><input type="tel" id="af-phone" placeholder="(555) 123-4567" autocomplete="tel"><div class="error-msg">Please enter a valid phone number</div></div>
-        </div>
-
-        <div class="field" id="field-audience"><label for="af-audience">Audience Size / Following *</label><select id="af-audience"><option value="">Select your audience size...</option><option value="Under 1K">Under 1K</option><option value="1K-5K">1K &ndash; 5K</option><option value="5K-10K">5K &ndash; 10K</option><option value="10K-25K">10K &ndash; 25K</option><option value="25K-50K">25K &ndash; 50K</option><option value="50K+">50K+</option></select><div class="error-msg">Please select your audience size</div></div>
-
-        <div class="field" id="field-describe"><label for="af-describe">How would you describe your audience or network? *</label><textarea id="af-describe" rows="3" placeholder="e.g. I'm a mortgage lender who works with 40+ agents in Rhode Island..."></textarea><div class="error-msg">Please describe your audience</div></div>
-
-        <div class="field" id="field-promote"><label for="af-promote">How do you plan to promote Virtual Twins? *</label><textarea id="af-promote" rows="3" placeholder="e.g. I'd share it in my weekly newsletter, mention it at my office meetings, and introduce it to my top agent contacts..."></textarea><div class="error-msg">Please describe your promotion plan</div></div>
-
-        <div class="field"><label for="af-website">Website or Social Profile URL <span style="color:var(--text-light);font-weight:400">(optional)</span></label><input type="url" id="af-website" placeholder="https://instagram.com/yourhandle"></div>
-
-        <button class="btn-primary" id="btn-submit"><span class="btn-text">Submit My Application &rarr;</span><div class="spinner"></div></button>
-        <p class="fine-print">We respect your information. No spam. No sharing. Just a real conversation.</p>
-      </div>
-
-      <div id="formSuccess" style="display:none">
-        <div class="success-state">
-          <div class="success-check">&#10003;</div>
-          <h3>Application Received!</h3>
-          <p>We'll review it personally and be in touch within 48 hours if there's a fit. In the meantime, feel free to browse our <a href="/" style="color:var(--accent-light)">agent landing page</a> to see the product in action.</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
